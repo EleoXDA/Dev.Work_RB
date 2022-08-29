@@ -1,6 +1,6 @@
 # Dev.Work[^1]
 
-<div align="center"> <img src="https://user-images.githubusercontent.com/27622683/187240639-b8dac5bc-504f-44b7-a0bb-14b57de877a1.png" width=350> </div>
+<div align="center"> <img src="https://user-images.githubusercontent.com/27622683/187276404-4e05d486-6084-4f0f-b2c0-16aa586b649e.png" width=350> </div>
 
 ## A platform where you can find the developer you need for code troubles you have
 
