@@ -3,5 +3,5 @@ class Challenge < ApplicationRecord
   belongs_to :user
   has_many :bookings, dependent: :destroy
 
-  validates :title, :content, :price_max, :deadline, presence: trues
+  validates :title, :content, :price_max, :deadline, presence: true
 end
