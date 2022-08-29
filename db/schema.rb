@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_29_133938) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_29_140112) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_133938) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "review"
+    t.integer "price"
+    t.date "date"
     t.index ["challenge_id"], name: "index_bookings_on_challenge_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -29,6 +31,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_133938) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
+    t.text "content"
+    t.integer "price_max"
+    t.date "deadline"
     t.index ["filter_id"], name: "index_challenges_on_filter_id"
     t.index ["user_id"], name: "index_challenges_on_user_id"
   end
@@ -36,26 +42,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_29_133938) do
   create_table "filters", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.bigint "challenge_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["challenge_id"], name: "index_reviews_on_challenge_id"
-    t.index ["user_id"], name: "index_reviews_on_user_id"
+    t.string "name"
   end
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nickname"
+    t.string "name"
   end
 
   add_foreign_key "bookings", "challenges"
   add_foreign_key "bookings", "users"
   add_foreign_key "challenges", "filters"
   add_foreign_key "challenges", "users"
-  add_foreign_key "reviews", "challenges"
-  add_foreign_key "reviews", "users"
 end
