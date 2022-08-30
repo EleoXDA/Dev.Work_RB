@@ -1,10 +1,34 @@
-#banner{
-  background: rgb(35,35,36);
-  background: linear-gradient(153deg, rgba(35,35,36,1) 0%, rgba(148,92,49,1) 0%, rgba(191,109,40,1) 75%);
-  color:rgb(12,81,185);
-  font-weight: bolder;
-  height: 400px;
-  }
+
+
+.banner {
+  padding: 200px ;
+}
+
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 50px;
+  margin-bottom: 20px;
+
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  margin-top: 10px;
+}
+
+
+
+
+.btn-primary:hover{
+  background-color: rgba(176, 179, 164, 0.292);
+  text-decoration: none;
+}
 /*  try with this image banner{
   background-image: url(https://images.unsplash.com/photo-1539627831859-a911cf04d3cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHB1enpsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60);
   background-size: cover;
