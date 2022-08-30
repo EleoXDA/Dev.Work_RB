@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   def create
+    @challenge = Challenge.find(params[:challenge_id])
     @booking = Booking.new(booking_params)
     if @booking.save
       redirect_to booking_path(@challenges)
