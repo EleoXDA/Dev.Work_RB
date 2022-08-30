@@ -3,6 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.2"
 
+
+# Random image gem
+gem "image_suckr"
+
 # Font-awesome
 
 gem "font-awesome-rails"
