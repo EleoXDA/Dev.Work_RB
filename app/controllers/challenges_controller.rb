@@ -4,7 +4,11 @@ class ChallengesController < ApplicationController
   end
 
   def index
-    @challenges = Challenge.all
+    if params[:filter]
+      @challenges = @challenges.where('filter ILIKE ?', "%#{params[:filter]}%")
+    else
+      @challenges = Challenge.all
+    end
   end
 
   # def new
