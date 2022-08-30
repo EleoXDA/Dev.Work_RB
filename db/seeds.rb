@@ -24,13 +24,21 @@ end
 
 user_array = []
 15.times do
-  user = User.new(nickname: Faker::FunnyName.name, name: Faker::Name.name, email: Faker::Internet.email, password: "123456")
+  user = User.new(nickname: Faker::FunnyName.name,
+                  name: Faker::Name.name,
+                  email: Faker::Internet.email,
+                  password: "123456")
   user.save!
   user_array << user
 end
 
 20.times do
-  challenge = Challenge.new(title: Faker::DcComics.title, content: Faker::Lorem.paragraphs(number: 2), price_max: rand(100), deadline: Faker::Date.between(from: '2022-09-23', to: '2023-09-25'), filter: filter_array.sample, user: user_array.sample)
+  challenge = Challenge.new(title: Faker::DcComics.title,
+                            content: Faker::Lorem.paragraphs(number: 2),
+                            price_max: rand(100),
+                            deadline: Faker::Date.between(from: '2022-09-10', to: '2022-12-31'),
+                            filter: filter_array.sample,
+                            user: user_array.sample)
   challenge.save!
 end
 
