@@ -1,2 +1,62 @@
 // Import page-specific CSS files here.
 @import "home";
+
+body {
+    background-color: #eee;
+}
+
+
+.card{
+  border: none;
+  transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+  overflow:hidden;
+  border-radius:20px;
+  box-shadow: 0 0 12px 0 rgba(0,0,0,0.2);
+}
+
+
+.c-details span {
+    font-weight: 300;
+    font-size: 13px
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    background-color: #eee;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 39px
+}
+
+.badge span {
+    background-color: #d0c9b0;
+    width: 60px;
+    height: 25px;
+    padding-bottom: 3px;
+    border-radius: 5px;
+    display: flex;
+    color: #070500;
+    justify-content: center;
+    align-items: center
+}
+
+
+.text1 {
+    font-size: 14px;
+    font-weight: 600
+}
+
+.text2 {
+    color: #a5aec0
+}
+
+
+.avatar-img{
+  height:50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
