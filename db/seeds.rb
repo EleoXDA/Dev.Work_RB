@@ -15,9 +15,16 @@ User.destroy_all
 
 puts "Generating seeds..."
 
+lang = ['Java', 'Kotlin', 'Ruby', 'Javascript', 'Swift', 'Dart', 'CSS',
+  'HTML', 'Bash', 'XML', 'C++', 'Rust', 'Pascal', 'Fortran', 'PHP',
+  'Perl']
+title = ['Help needed', 'Please FIX ASAP', 'DEV to the rescue', 'Stuck in loading',
+"Doesn't Start up", 'Need a hand', 'Please please', 'Desperately in need',
+'New workplace needs a Dev', 'Fix this join us']
+
 filter_array = []
 5.times do
-  filter = Filter.new(name: Faker::ProgrammingLanguage.name)
+  filter = Filter.new(name: lang.sample)
   filter.save!
   filter_array << filter
 end
@@ -33,7 +40,7 @@ user_array = []
 end
 
 20.times do
-  challenge = Challenge.new(title: Faker::DcComics.title,
+  challenge = Challenge.new(title: title.sample,
                             content: Faker::Lorem.paragraphs(number: 2),
                             price_max: rand(100),
                             deadline: Faker::Date.between(from: '2022-09-10', to: '2022-12-31'),
