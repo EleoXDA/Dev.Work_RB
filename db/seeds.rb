@@ -6,20 +6,33 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-require 'date'
+# require 'date'
+require 'faker'
 
 Booking.destroy_all
 Challenge.destroy_all
 Filter.destroy_all
 User.destroy_all
-user = User.new(nickname: "ben", name: "benjamin", email: 'ben@ben.com', password: "123456")
-user.save!
-filter = Filter.new(name: "Ruby")
-challenge = Challenge.new(title: "New challenge", content: "Fancy new content!", price_max: 8, deadline: Date.today, user: user)
-# challenge.user = user
-challenge.filter = filter
-challenge.save!
 
-booking = Booking.new(review: "", price: 4, date: Date.today, user: user)
-booking.challenge = challenge
-booking.save!
+puts "Generating seeds..."
+
+filter_array = []
+5.times do
+  filter = Filter.new(name: Faker::ProgrammingLanguage.name)
+  filter.save!
+  filter_array << filter
+end
+
+user_array = []
+15.times do
+  user = User.new(nickname: Faker::FunnyName.name, name: Faker::Name.name, email: Faker::Internet.email, password: "123456")
+  user.save!
+  user_array << user
+end
+
+20.times do
+  challenge = Challenge.new(title: Faker::DcComics.title, content: Faker::Lorem.paragraphs(number: 2), price_max: rand(100), deadline: Faker::Date.between(from: '2022-09-23', to: '2023-09-25'), filter: filter_array.sample, user: user_array.sample)
+  challenge.save!
+end
+
+puts "Seeds added..."
