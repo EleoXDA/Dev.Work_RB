@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="card my-3 p-4">
+    <div class="card-body">
+      <h1><%= @challenge.title %></h1>
+      <h3>Maximum price: €<%= @challenge.price_max %></h3>
+      <p><%= @challenge.content %></p>
+      <p>Deadline: <%= @challenge.deadline %></p>
+    </div>
+  </div>
+
+  <div class="card my-3 p-4">
+    <div class="card-body">
+      <h2>Offer your skills</h2>
+      <p>Think you have the skills required? Let them know how much you could do the challenge do
+        and how long it will take you...</p>
+      <%= simple_form_for [@challenge, @booking] do |f| %>
+        <%= f.input :price %>
+        <%= f.input :date %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="card my-3 p-4">
+    <div class="card-body">
+      <% if @bookings.empty? %>
+        <h2>No review have been made yet!</h2>
+      <% else %>
+        <h2>Offers made so far...</h2>
+        <div class="offers">
+          <div class="offer-details">
+            <% @bookings.each do |booking| %>
+              <h3>User: <%= booking.user.name %> (call me <%= booking.user.nickname %>)</h3>
+              <p>Offered price: €<%= booking.price %></p>
+              <p>Offered date of completion: <%= booking.date %></p>
+            <% end %>
+          </div>
+          <div class="choose-offer-button">
+            <%= link_to "Placeholder", "#", class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
