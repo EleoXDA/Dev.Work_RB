@@ -26,10 +26,11 @@ class ChallengesController < ApplicationController
     end
   end
 
-  # def destroy
-  #   @challenge = Challenge.find(params[:id])
-  #   @challenge.destroy
-  # end
+  def destroy
+    @challenge = Challenge.find(params[:id])
+    @challenge.destroy
+    redirect_to challenges_path, status: :see_other
+  end
 
   private
 
