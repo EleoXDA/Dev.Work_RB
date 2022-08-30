@@ -1,6 +1,8 @@
 class ChallengesController < ApplicationController
   def show
     @challenge = Challenge.find(params[:id])
+    @bookings = @challenge.bookings
+    @booking = Booking.new
   end
 
   def index
