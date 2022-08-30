@@ -8,10 +8,10 @@ class BookingsController < ApplicationController
     end
   end
 
-  def review
-    @booking = Booking.find(params[:id])
-    @challenge = Challenge.find(params[:challenge_id])
-  end
+  # def review
+  #   @booking = Booking.find(params[:id])
+  #   @challenge = Challenge.find(params[:challenge_id])
+  # end
 
   private
 
