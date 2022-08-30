@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html>
+
+<%# class h-100 sticks the footer at the bottom %>
+<html class="h-100">
   <head>
     <title>Rbnb</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,7 +16,7 @@
 
   <body>
     <%= render "shared/navbar" %>
-    <%= render "shared/banner" %>
+
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= render "shared/footer" %>

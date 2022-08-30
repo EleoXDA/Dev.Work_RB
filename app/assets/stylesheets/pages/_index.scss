@@ -34,16 +34,17 @@ body {
     font-size: 39px
 }
 
-.badge span {
+.badge  {
     background-color: #d0c9b0;
-    width: 60px;
+    // width: 60px;
     height: 25px;
     padding-bottom: 3px;
     border-radius: 5px;
     display: flex;
     color: #070500;
     justify-content: center;
-    align-items: center
+    align-items: center;
+    overflow: hidden;
 }
 
 
