@@ -1,24 +1,30 @@
 class ChallengesController < ApplicationController
   def show
     @challenge = Challenge.find(params[:id])
+    @bookings = @challenge.bookings
+    @booking = Booking.new
   end
 
   def index
-    @challenges = Challenge.all
+    if params[:filter]
+      @challenges = @challenges.where('filter ILIKE ?', "%#{params[:filter]}%")
+    else
+      @challenges = Challenge.all
+    end
   end
 
-  # def new
-  #   @challenge = Challenge.new
-  # end
+  def new
+    @challenge = Challenge.new
+  end
 
-  # def create
-  #   @challenge = Challenge.new(challenge_params)
-  #   if @challenge.save
-  #     redirect_to challenges_path
-  #   else
-  #     render :new, status: :unprocessable_entity
-  #   end
-  # end
+  def create
+    @challenge = Challenge.new(challenge_params)
+    if @challenge.save
+      redirect_to challenges_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
 
   # def destroy
   #   @challenge = Challenge.find(params[:id])

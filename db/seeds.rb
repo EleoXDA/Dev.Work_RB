@@ -6,21 +6,32 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+require 'faker'
 
-# validates :title, :content, :price_max, :deadline, presence: true
+Booking.destroy_all
+Challenge.destroy_all
+Filter.destroy_all
+User.destroy_all
 
-# user = User.new(nickname: "Nriajaaoooo", name: "Nirajan", email: "stu1125615@as.com", password: "not my password")
-# user.save!
-# filter = Filter.new(name: "Java")
-# challenge = Challenge.new(title: "center div", content: "Please center my div", price_max: 1000, deadline: Date.today, user:user)
-# challenge.filter = filter
-# challenge.save!
+puts "Generating seeds..."
 
+filter_array = []
+5.times do
+  filter = Filter.new(name: Faker::ProgrammingLanguage.name)
+  filter.save!
+  filter_array << filter
+end
 
-# new_user = User.new(nickname: "Nriajaaoooo", name: "Weiss", email: "121@outlook.com", password: "not my password")
-# new_user.save!
+user_array = []
+15.times do
+  user = User.new(nickname: Faker::FunnyName.name, name: Faker::Name.name, email: Faker::Internet.email, password: "123456")
+  user.save!
+  user_array << user
+end
 
-# filter = Filter.new(name: "Rails")
-# new_challenge = Challenge.new(title: "Fix my code!!", content: "Please fix my code", price_max: 10100, deadline: Date.today, user: new_user)
-# new_challenge.filter = filter
-# new_challenge.save!
+20.times do
+  challenge = Challenge.new(title: Faker::DcComics.title, content: Faker::Lorem.paragraphs(number: 2), price_max: rand(100), deadline: Faker::Date.between(from: '2022-09-23', to: '2023-09-25'), filter: filter_array.sample, user: user_array.sample)
+  challenge.save!
+end
+
+puts "Seeds added..."

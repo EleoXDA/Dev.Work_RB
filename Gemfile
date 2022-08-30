@@ -68,6 +68,7 @@ group :development, :test do
 end
 
 gem "devise"
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
