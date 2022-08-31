@@ -18,7 +18,32 @@
   border-bottom: 1px solid grey;
 }
 
-.offers-right {
-  max-height: 70vh;
-  overflow-y: scroll;
+// .offers-right {
+//   max-height: 70vh;
+//   overflow-y: scroll;
+// }
+.card {
+  // overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.card-body {
+width: 50%;
+}
+
+.card-image img {
+  height: 150px;
+  width: 150px;
+  margin-left: 15px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#offer-alert {
+  top: 90px;
+  bottom: auto;
+  // width: 100%;
+  opacity: 0.9;
 }
