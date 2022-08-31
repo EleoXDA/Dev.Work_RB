@@ -2,7 +2,7 @@
   <div class="offers-left">
     <div class="cardshow my-3 p-4">
       <div class="card-image">
-        <img src="https://images.unsplash.com/photo-1469598614039-ccfeb0a21111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80" alt="">
+        <%= image_tag(@challenge.user.image_url) %>
       </div>
       <div class="card-body">
         <h1><%= @challenge.title %></h1>
