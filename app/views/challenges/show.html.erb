@@ -21,7 +21,7 @@
           <%= simple_form_for [@challenge, @booking] do |f| %>
             <%= f.input :price %>
             <%= f.input :date, label: 'Proposed date of completion' %>
-            <%= f.submit "Make offer", class:"btn btn-primary" %>
+          <%= f.submit "Make offer", class:"btn btn-dark btn-lg rounded-lg", id:"button" %>
           <% end %>
         </div>
       </div>
