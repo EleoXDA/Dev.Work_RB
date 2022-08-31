@@ -1,21 +1,35 @@
 
 
 .banner {
-  padding: 200px ;
+  padding: 371px ;
+  background-image: linear-gradient(rgba(0,50,0,0.8),rgba(0,0,0,0.8)), url(https://wallpaperaccess.com/download/4k-programming-796835);
+  // background-image:
+  // height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
+// .container {
+//   margin-bottom: 100px;
+// }
+
+.second {
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
+  width: 50%;
+}
 
 .banner h1 {
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 50px;
+  font-size: 60px;
   margin-bottom: 20px;
 
 }
 
 .banner p {
-  font-size: 20px;
+  font-size: 30px;
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
