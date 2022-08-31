@@ -6,6 +6,7 @@
       </div>
       <div class="card-body">
         <h1><%= @challenge.title %></h1>
+        <p><strong>Language: </strong><%= @challenge.filter.name %></p>
         <p><%= @challenge.content %></p>
         <p>Maximum price: €<%= @challenge.price_max %></p>
         <p>Deadline: <%= @challenge.deadline %></p>
