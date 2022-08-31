@@ -13,20 +13,26 @@
       </div>
     </div>
 
-    <% if current_user != @challenge.user %>
-      <div class="cardshow my-3 p-4">
-        <div class="card-body">
-          <h2>Offer your skills</h2>
-          <p>Do you think you have the required skills? Let them know for how much
-            you could do the challenge and how long it will take you:</p>
-          <%= simple_form_for [@challenge, @booking] do |f| %>
-            <%= f.input :price %>
-            <%= f.input :date, label: 'Proposed date of completion' %>
-          <%= f.submit "Make offer", class:"btn btn-dark btn-lg rounded-lg", id:"button" %>
-          <% end %>
-        </div>
+  <% if current_user != @challenge.user %>
+    <div class="cardshow my-3 p-4">
+      <div class="card-body">
+        <h2>Offer your skills</h2>
+        <p>Do you think you have the required skills? Let them know for how much
+           you could do the challenge and how long it will take you:</p>
+        <%= simple_form_for [@challenge, @booking] do |f| %>
+          <div class="row d-flex flex-row justify-content-around">
+            <div class="col-3">
+              <%= f.input :price, label: "Price in €" %>
+            </div>
+            <div class="col-8">
+              <%= f.input :date, label: 'Proposed date of completion' %>
+            </div>
+          </div>
+        <%= f.submit "Make offer", class:"btn btn-dark btn-lg rounded-lg", id:"button" %>
+        <% end %>
       </div>
-    <% end %>
+    </div>
+  <% end %>
   </div>
 
 
