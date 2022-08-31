@@ -1,5 +1,5 @@
-<div class="container d-flex position-relative">
-  <div class="offers-left">
+<div class="container d-flex">
+  <div class="offers-left ml-5">
     <div class="card my-3 p-4">
       <div class="card-body">
         <h1><%= @challenge.title %></h1>
@@ -9,43 +9,44 @@
       </div>
     </div>
 
-    <div class="card my-3 p-4">
-      <div class="card-body">
-        <h2>Offer your skills</h2>
-        <p>Think you have the skills required? Let them know how much you could do the challenge do
-          and how long it will take you...</p>
-        <%= simple_form_for [@challenge, @booking] do |f| %>
-          <%= f.input :price %>
-          <%= f.input :date %>
-          <%= f.submit "Make offer", class:"btn btn-primary" %>
-        <% end %>
+    <% if current_user != @challenge.user %>
+      <div class="card my-3 p-4">
+        <div class="card-body">
+          <h2>Offer your skills</h2>
+          <p>Think you have the skills required? Let them know how much you could do the challenge do
+            and how long it will take you...</p>
+          <%= simple_form_for [@challenge, @booking] do |f| %>
+            <%= f.input :price %>
+            <%= f.input :date, label: 'Proposed date of completion' %>
+            <%= f.submit "Make offer", class:"btn btn-primary" %>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 
-  <div class="offers-right ml-3">
-    <div class="card my-3 p-4">
-      <div class="card-body">
-        <% if @bookings.empty? %>
-          <h2>No review have been made yet!</h2>
-        <% else %>
-          <h2>Offers made so far...</h2>
+
+  <% if !@bookings.empty? && current_user == @challenge.user %>
+    <div class="offers-right ml-3">
+      <div class="card my-3 p-4">
+        <div class="card-body">
+          <h2>Offers</h2>
           <div>
             <ul class="offers px-0">
               <% @bookings.each do |booking| %>
-                <li class="py-3">
+                <li class="py-5">
                   <h4>User: <%= booking.user.name %> (call me <%= booking.user.nickname %>)</h3>
                   <p>Offered price: €<%= booking.price %></p>
                   <p>Offered date of completion: <%= booking.date %></p>
                   <div class="choose-offer-button">
-                    <%= link_to "Placeholder", "#", class: "btn btn-primary" %>
+                    <%= link_to "Accept offer", "#", class: "btn btn-primary" %>
                   </div>
                 </li>
               <% end %>
             </ul>
           </div>
-        <% end %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>
