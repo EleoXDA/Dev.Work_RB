@@ -1,0 +1,21 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h3>Create a new challenge</h3>
+        <%= simple_form_for @challenge do |f| %>
+          <%= f.input :title, placeholder: 'Add a Title' %>
+          <%= f.input :content, placeholder: 'Describe in Details' %>
+          <%= f.input :price_max, placeholder: 'Put maximum price in Euros' %>
+          <%= f.input :deadline, placeholder: 'Put a deadline for your project' %>
+          <%= f.submit class: 'btn btn-flat' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+    t.string "title"
+    t.text "content"
+    t.integer "price_max"
+    t.date "deadline"
