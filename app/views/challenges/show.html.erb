@@ -1,11 +1,12 @@
 <div class="container">
   <div class="offers-left">
-    <div class="card my-3 p-4">
+    <div class="cardshow my-3 p-4">
       <div class="card-image">
-        <img src="https://images.unsplash.com/photo-1469598614039-ccfeb0a21111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80" alt="">
+        <%= image_tag(@challenge.user.image_url) %>
       </div>
       <div class="card-body">
         <h1><%= @challenge.title %></h1>
+        <p><strong>Language: </strong><%= @challenge.filter.name %></p>
         <p><%= @challenge.content %></p>
         <p>Maximum price: €<%= @challenge.price_max %></p>
         <p>Deadline: <%= @challenge.deadline %></p>
@@ -13,7 +14,7 @@
     </div>
 
     <% if current_user != @challenge.user %>
-      <div class="card my-3 p-4">
+      <div class="cardshow my-3 p-4">
         <div class="card-body">
           <h2>Offer your skills</h2>
           <p>Do you think you have the required skills? Let them know for how much
@@ -31,7 +32,7 @@
 
   <% if !@bookings.empty? && current_user == @challenge.user %>
     <div class="offers-right">
-      <div class="card my-3 p-4">
+      <div class="cardshow my-3 p-4">
         <div class="card-body">
           <h2>Offers</h2>
           <div>

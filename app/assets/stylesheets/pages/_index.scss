@@ -64,3 +64,15 @@ body {
   border-radius: 50%;
   object-fit: cover;
 }
+
+// .image {
+//   height: 50px;
+//   width: 50px;
+// }
+
+.image img{
+  height: 50px;
+  width: 50px;
+  border-radius:50%;
+  border: 1px solid green;
+}
