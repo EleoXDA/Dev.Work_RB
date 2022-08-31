@@ -17,7 +17,7 @@
         <%= simple_form_for [@challenge, @booking] do |f| %>
           <%= f.input :price %>
           <%= f.input :date %>
-          <%= f.submit "Make offer", class:"btn btn-primary" %>
+          <%= f.submit "Make offer", class:"btn btn-dark btn-lg rounded-lg", id:"button" %>
         <% end %>
       </div>
     </div>
@@ -38,7 +38,7 @@
                   <p>Offered price: €<%= booking.price %></p>
                   <p>Offered date of completion: <%= booking.date %></p>
                   <div class="choose-offer-button">
-                    <%= link_to "Placeholder", "#", class: "btn btn-primary" %>
+                    <%= link_to "Placeholder", "#", class:"btn btn-dark btn-lg rounded-lg", id:"button"%>
                   </div>
                 </li>
               <% end %>
