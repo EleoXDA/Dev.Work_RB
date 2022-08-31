@@ -27,7 +27,7 @@
               <%= image_tag "https://media.istockphoto.com/illustrations/blank-man-profile-head-icon-placeholder-illustration-id1298261537?k=20&m=1298261537&s=612x612&w=0&h=8plXnK6Ur3LGqG9s-Xt2ZZfKk6bI0IbzDZrNH9tr9Ok=&auto=format&fit=crop&w=500&q=60", class: "avatar dropdown-toggle",  id: "navbarDropdown square", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Filter by language", "#", class: "dropdown-item" %>
+              <%# <%= link_to "Filter by language", "#", class: "dropdown-item" %>
               <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
