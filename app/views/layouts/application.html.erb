@@ -15,14 +15,19 @@
   </head>
 
   <body>
-  <div class="d-flex flex-column min-vh-100">
-    <%= render "shared/navbar" %>
-
-    <%= render 'shared/flashes' %>
-    <article class="flex-grow-1">
-      <%= yield %>
-    </article>
-    <%= render "shared/footer" %>
-  </div>
+    <div class="developer">
+      <div class="d-flex flex-column min-vh-100">
+        <% unless current_page?(root_path) %>
+          <%= render "shared/navbar" %>
+        <% end %>
+        <%= render 'shared/flashes' %>
+        <article class="flex-grow-1">
+          <%= yield %>
+        </article>
+        <% unless current_page?(root_path) %>
+          <%= render "shared/footer" %>
+        <% end %>
+      </div>
+    </div>
   </body>
 </html>
