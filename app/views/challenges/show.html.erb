@@ -1,6 +1,6 @@
 <div class="container">
   <div class="offers-left">
-    <div class="card my-3 p-4">
+    <div class="cardshow my-3 p-4">
       <div class="card-image">
         <img src="https://images.unsplash.com/photo-1469598614039-ccfeb0a21111?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80" alt="">
       </div>
@@ -13,7 +13,7 @@
     </div>
 
     <% if current_user != @challenge.user %>
-      <div class="card my-3 p-4">
+      <div class="cardshow my-3 p-4">
         <div class="card-body">
           <h2>Offer your skills</h2>
           <p>Think you have the skills required? Let them know how much you could do the challenge do
@@ -31,7 +31,7 @@
 
   <% if !@bookings.empty? && current_user == @challenge.user %>
     <div class="offers-right">
-      <div class="card my-3 p-4">
+      <div class="cardshow my-3 p-4">
         <div class="card-body">
           <h2>Offers</h2>
           <div>
