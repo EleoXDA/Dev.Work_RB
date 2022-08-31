@@ -11,7 +11,9 @@
             <div class="card p-3 mb-2 card-bg">
                 <div class="d-flex justify-content-between border-bottom pb-3">
                     <div class="d-flex flex-row align-items-center ">
-                      <%= image_tag "https://source.unsplash.com/random/50x50?sig=#{index+1}", class:"rounded" %>
+                        <div class="image">
+                          <%= image_tag(challenge.user.image_url) %>
+                        </div>
                         <div class="ms-2 c-details">
                           <h4><%= challenge.user.name %></h4>
                         </div>
