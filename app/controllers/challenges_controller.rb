@@ -27,6 +27,7 @@ class ChallengesController < ApplicationController
   def create
     @challenge = Challenge.new(challenge_params)
     @challenge.user = current_user
+    @challenge.filter = Filter.find(params[:challenge][:filter_id])
     if @challenge.save
       redirect_to challenges_path
     else
