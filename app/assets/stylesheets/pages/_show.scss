@@ -8,9 +8,9 @@
 }
 
 .offers {
-  // list-style-type: none;
+  list-style-type: none;
   padding-left: none;
-  // list-style-position: inside;
+  list-style-position: inside;
 }
 
 // .offers li:not(:last-child) {
@@ -34,7 +34,9 @@
 
 .cardshow {
   // overflow: hidden;
-  height: 100%;
+  height: auto;
+  padding: 10px 0;
+  // height: 100%;
   display: flex;
   background-color: white;
   flex-direction: column;
@@ -44,7 +46,7 @@
   overflow: hidden;
   border-radius: 20px;
   box-shadow: 0 0 12px 0 rgba(0,0,0,0.2);
-  margin: 10px;
+  // margin: 10px;
 }
 
 .card-body {
@@ -85,4 +87,11 @@
   bottom: auto;
   // width: 100%;
   opacity: 0.9;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: 4fr 2fr;
+  grid-gap: 26px;
 }
