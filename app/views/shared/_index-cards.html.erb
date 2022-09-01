@@ -6,7 +6,9 @@
           <div class="d-flex justify-content-between border-bottom pb-3">
             <div class="d-flex flex-row align-items-center ">
               <div class="image">
-                <%= image_tag(challenge.user.image_url) %>
+                <% if challenge.user.image_url %>
+                  <%= image_tag(challenge.user.image_url) %>
+                <% end %>
               </div>
               <div class="ms-2 c-details">
                 <h4><%= challenge.user.name %>
