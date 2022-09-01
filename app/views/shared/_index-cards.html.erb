@@ -11,10 +11,15 @@
                     <%= image_tag(challenge.user.image_url) %>
                   <% end %>
                 </div>
+                <%# <div class="ms-2 c-details">
+                   <span>1 days ago</span>
+              </div> %>
                 <div class="ms-2 c-details">
                   <h5><%= challenge.user.name %>
                   </h5>
+                  <span><i class="fa-sharp fa-solid fa-location-pin"></i><%= challenge.cities %></span>
                 </div>
+
               </div>
               <div class="badge"><%= challenge.filter.name %>
               </div>

@@ -52,12 +52,31 @@ end
 
 50.times do
   addresses = [
-    "Rue de Vermont, Geneva, Switzerland",
-    "Grange Canal, Geneva, Switzerland",
+    "Geneva, Switzerland",
+    "Zurich, Switzerland",
+    "Bern, Switzerland",
     "University of Cambridge, Cambridge, United Kingdom",
     "University of Oxford, Oxford, United Kingdom",
-    "Baneshwor, Kathmandu, Nepal"
+    "Baneshwor, Kathmandu, Nepal",
+    "Berlin, Germany",
+    "Frankfurt, Germany",
+    "Paris, France",
+    "Bristol, Prais",
+    "Lyon, France",
+    "Kyiv, Ukraine",
+    "Madrid, Spain",
+    "Porto, Portugal",
+    "Lisbon, Portugal",
+    "Seville, Spain",
+    "Palermo, Italy",
+    "Vienna Italy"
 
+
+  ]
+
+  cities = [
+    "Geneva", "Cambridge", "Oxford", "Kathmandu", "Berlin", "Rome", "Florence", "Hamburg", "Bristol",
+    "Paris", "Frankfurt", "Lyon", "Kyiv", "Madrid", "Porto", "Lisbon", "Seville", "Palermo", "Vienna"
   ]
   challenge = Challenge.new(title: title.sample,
                             content: Faker::Lorem.paragraphs(number: 2),
@@ -65,7 +84,8 @@ end
                             deadline: Faker::Date.between(from: '2022-09-10', to: '2022-12-31'),
                             filter: filter_array.sample,
                             user: user_array.sample,
-                            location: addresses.sample
+                            location: addresses.sample,
+                            cities: cities.sample
                           )
   challenge.save!
 end
