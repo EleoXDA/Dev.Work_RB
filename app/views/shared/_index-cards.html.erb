@@ -1,4 +1,15 @@
 <div class="container mt-5 mb-3 cards">
+
+  <div  data-controller="map"
+    id="map"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+    data-map-markers-valie=" <%= @markers.to_json %>"
+    style='width:400px; height:300px;'></div>
+
+
+
+
+
   <div class="row">
     <% @challenges.each_with_index do |challenge, index| %>
       <div class="col-md-4">

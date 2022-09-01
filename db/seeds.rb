@@ -56,7 +56,9 @@ end
                             price_max: rand(100),
                             deadline: Faker::Date.between(from: '2022-09-10', to: '2022-12-31'),
                             filter: filter_array.sample,
-                            user: user_array.sample)
+                            user: user_array.sample,
+                            location: "Rue de moillebeau"
+                          )
   challenge.save!
 end
 
