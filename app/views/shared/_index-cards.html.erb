@@ -1,15 +1,3 @@
-<% if current_page?(owner_challenges_path) %>
-  <div class="container text-center index-image">
-    <h1>Welcome to Dev.Work</h1>
-    <p>Find your challenges below</p>
-  </div>
-<% else %>
-  <div class="container text-center index-image">
-    <h1>Welcome to Dev.Work</h1>
-    <p>Find challenges below and help out fellow developers</p>
-  </div>
-<% end %>
-
 <div class="container mt-5 mb-3 cards">
   <div class="row">
     <% @challenges.each_with_index do |challenge, index| %>
