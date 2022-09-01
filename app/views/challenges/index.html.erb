@@ -3,12 +3,19 @@
     <h1>Welcome to Dev.Work</h1>
     <p>Find challenges below and help out fellow developers</p>
   </div>
-
-
+  <div class="container">
+    <div data-controller="map"
+      id="map"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+      data-map-markers-value=" <%= @markers.to_json %>"
+      style='width: 100%px; height:500px;'>
+    </div>
+  </div>
   <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     Filter the languages
   </button>
+  <%= link_to "Reset filters", challenges_path, class:"btn btn-secondary" %>
   <ul class="dropdown-menu">
     <% @filters.each do |filter| %>
     <li><%= link_to filter.name, challenges_path(filter: filter.name), class:"dropdown-item" %></li>
