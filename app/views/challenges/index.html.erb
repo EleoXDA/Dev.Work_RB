@@ -4,9 +4,17 @@
     <p>Find challenges below and help out fellow developers</p>
   </div>
 
-  <% @filters.each do |filter| %>
-    <%= link_to filter.name, challenges_path(filter: filter.name) %>
-  <% end %>
+
+  <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Filter the languages
+  </button>
+  <ul class="dropdown-menu">
+    <% @filters.each do |filter| %>
+    <li><%= link_to filter.name, challenges_path(filter: filter.name), class:"dropdown-item" %></li>
+    <% end %>
+  </ul>
+</div>
 
   <%= render "shared/index-cards" %>
 </div>
