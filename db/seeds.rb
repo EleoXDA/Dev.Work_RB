@@ -51,13 +51,21 @@ user_array = []
 end
 
 50.times do
+  addresses = [
+    "Rue de Vermont, Geneva, Switzerland",
+    "Grange Canal, Geneva, Switzerland",
+    "University of Cambridge, Cambridge, United Kingdom",
+    "University of Oxford, Oxford, United Kingdom",
+    "Baneshwor, Kathmandu, Nepal"
+
+  ]
   challenge = Challenge.new(title: title.sample,
                             content: Faker::Lorem.paragraphs(number: 2),
                             price_max: rand(100),
                             deadline: Faker::Date.between(from: '2022-09-10', to: '2022-12-31'),
                             filter: filter_array.sample,
                             user: user_array.sample,
-                            location: "Rue de moillebeau"
+                            location: addresses.sample
                           )
   challenge.save!
 end
