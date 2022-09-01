@@ -2,7 +2,7 @@
   <div class="offers-left">
     <div class="cardshow my-3 p-4">
       <div class="card-image">
-        <%= image_tag(@challenge.user.image_url) %>
+        <%= image_tag(@challenge.user.image_url) if @challenge.user.image_url%>
       </div>
       <div class="card-body">
         <h1><%= @challenge.title %></h1>
