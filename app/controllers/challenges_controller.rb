@@ -6,8 +6,10 @@ class ChallengesController < ApplicationController
   end
 
   def index
+    @filters = Filter.all
     if params[:filter]
-      @challenges = @challenges.where('filter ILIKE ?', "%#{params[:filter]}%")
+      @filter = Filter.find_by(name: params[:filter])
+      @challenges = Challenge.where('filter_id = ?', @filter.id)
     else
       @challenges = Challenge.all
     end
