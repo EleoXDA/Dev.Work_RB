@@ -1,4 +1,6 @@
 class ChallengesController < ApplicationController
+  include ActionView::Helpers::UrlHelper
+
   def show
     @challenge = Challenge.find(params[:id])
     @bookings = @challenge.bookings
@@ -10,6 +12,9 @@ class ChallengesController < ApplicationController
     if params[:filter]
       @filter = Filter.find_by(name: params[:filter])
       @challenges = Challenge.where('filter_id = ?', @filter.id)
+    elsif current_page?(owner_challenges_path)
+      @challenges = current_user.challenges
+
     else
       @challenges = Challenge.all
     end
@@ -21,6 +26,7 @@ class ChallengesController < ApplicationController
 
   def create
     @challenge = Challenge.new(challenge_params)
+    @challenge.user = current_user
     if @challenge.save
       redirect_to challenges_path
     else

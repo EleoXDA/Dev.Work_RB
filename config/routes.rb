@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: %i[destroy]
   # resources :reviews, only: %i[edit update destroy]
+  get '/owner_challenges', action: :index, controller: 'challenges'
 end

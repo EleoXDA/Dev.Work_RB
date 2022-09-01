@@ -1,10 +1,12 @@
-<div class="container text-center index-image">
-  <h1>Welcome to Dev.Work</h1>
-  <p>Find challenges below and help out fellow developers</p>
+<div class="my-3">
+  <div class="container text-center index-image">
+    <h1>Welcome to Dev.Work</h1>
+    <p>Find challenges below and help out fellow developers</p>
+  </div>
+
+  <% @filters.each do |filter| %>
+    <%= link_to filter.name, challenges_path(filter: filter.name) %>
+  <% end %>
+
+  <%= render "shared/index-cards" %>
 </div>
-
-<% @filters.each do |filter| %>
-  <%= link_to filter.name, challenges_path(filter: filter.name) %>
-<% end %>
-
-<%= render "shared/index-cards" %>
