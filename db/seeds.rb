@@ -76,7 +76,7 @@ end
 
   cities = [
     "Geneva", "Cambridge", "Oxford", "Kathmandu", "Berlin", "Rome", "Florence", "Hamburg", "Bristol",
-    "Paris", "Frankfurt", "Lyon", "Kyiv", "Madrid", "Porto", "Lisbon", "Seville", "Palermo", "Vienna"
+    "Paris", "Frankfurt", "Lyon", "Kyiv", "Madrid", "Porto", "Lisbon", "Seville", "Palermo", "Vienna", "Zurich"
   ]
   challenge = Challenge.new(title: title.sample,
                             content: Faker::Lorem.paragraphs(number: 2),

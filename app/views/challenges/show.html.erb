@@ -8,6 +8,7 @@
           <div class="card-image">
             <%= image_tag(@challenge.user.image_url) if @challenge.user.image_url%>
           </div>
+          <i class="fa-solid fa-location-pin"></i><%= @challenge.cities %>
           <div class="card-body">
             <h1><%= @challenge.title %></h1>
             <p><strong>Maximum price: </strong>€<%= @challenge.price_max %></p>
