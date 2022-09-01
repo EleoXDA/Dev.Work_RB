@@ -60,4 +60,9 @@ end
   challenge.save!
 end
 
+200.times do
+  booking = Booking.new(review: Faker::TvShows::Friends.quote, price: rand(100), date: Date.today, challenge: Challenge.all.sample, user: User.all.sample)
+  booking.save!
+end
+
 puts "Seeds added..."
