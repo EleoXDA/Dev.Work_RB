@@ -13,7 +13,18 @@ export default class extends Controller {
       style: "mapbox://styles/mapbox/streets-v11",
     });
     this.#addMarkersToMap()
+    this.#fitMapToMarkers()
   }
+
+  #fitMapToMarkers() {
+    const bounds = new mapboxgl.LngLatBounds()
+    this.markersValue.forEach((marker) => {
+      bounds.extend([marker.lng, marker.lat])
+
+    })
+    this.map.fitBounds(bounds, {padding: 50})
+  }
+
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
       new mapboxgl.Marker()
