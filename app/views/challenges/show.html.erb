@@ -1,62 +1,87 @@
-<div class="container">
+<div class="container offers-container vh-100 my-3">
   <div class="offers-left">
-    <div class="cardshow my-3 p-4">
+    <%# ALL: The challenge itself %>
+    <div class="cardshow p-4" style="height: 58vh;">
       <div class="card-image">
-        <%= image_tag(@challenge.user.image_url) %>
+        <%= image_tag(@challenge.user.image_url) if @challenge.user.image_url%>
       </div>
       <div class="card-body">
         <h1><%= @challenge.title %></h1>
         <p><strong>Maximum price: </strong>€<%= @challenge.price_max %></p>
-        <p><strong>Deadline: </strong><%= @challenge.deadline %></p>
+        <p><strong>Deadline: </strong><%= @challenge.deadline.strftime("%B %d, %Y") %></p>
         <p><strong>Language: </strong><%= @challenge.filter.name %></p>
         <p><%= @challenge.content %></p>
       </div>
     </div>
 
-  <% if current_user != @challenge.user %>
-    <div class="cardshow my-3 p-4">
-      <div class="card-body">
-        <h2>Offer your skills</h2>
-        <p>Do you think you have the required skills? Let them know for how much
-           you could do the challenge and how long it will take you:</p>
-        <%= simple_form_for [@challenge, @booking] do |f| %>
-          <div class="row d-flex flex-row justify-content-around">
-            <div class="col-3">
-              <%= f.input :price, label: "Price in €" %>
+    <%# ONLY USERS: Form for those making an offer %>
+    <% if current_user != @challenge.user %>
+      <div class="cardshow p-4" style="margin-top: 2vh; height: 40vh;">
+        <div class="card-body">
+          <h2>Offer your skills</h2>
+          <p>Do you think you have the required skills? Let them know for how much
+            you could do the challenge and how long it will take you:</p>
+          <%= simple_form_for [@challenge, @booking] do |f| %>
+            <div class="row d-flex flex-row justify-content-around">
+              <div class="col-3">
+                <%= f.input :price, label: "Price, €" %>
+              </div>
+              <div class="col-8">
+                <%= f.input :date, label: 'Proposed date of completion' %>
+              </div>
             </div>
-            <div class="col-8">
-              <%= f.input :date, label: 'Proposed date of completion' %>
+          <%= f.submit "Make offer", class:"btn btn-dark btn-lg rounded-lg mt-2", id:"button" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <%# ONLY OWNERS: Showing the offers made and able to accept offer %>
+    <% if !@bookings.empty? && current_user == @challenge.user %>
+      <div class="cardshow vh-40 p-4" style="margin-top: 2vh;">
+        <div class="card-body">
+          <h2>Offers</h2>
+          <% if @bookings.empty? %>
+            <p>There are no offers on this challenge! Check back again later...</p>
+          <% else %>
+            <div>
+              <ul class="px-0 offers">
+                <% @bookings.each do |booking| %>
+                  <li class="py-5">
+                    <h4>User: <%= booking.user.name %> (call me <%= booking.user.nickname %>)</h3>
+                    <p>Offered price: €<%= booking.price %></p>
+                    <p>Offered date of completion: <%= booking.date %></p>
+                    <div class="choose-offer-button">
+                      <%= link_to "Accept offer", "#", class: "btn btn-primary" %>
+                    </div>
+                  </li>
+                <% end %>
+              </ul>
             </div>
+          <% end %>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%# ALL: Comments left on the challenge %>
+  <div class="offers-right vh-100">
+    <div class="cardshow p-4">
+      <div class="card-body-1">
+        <h2>Comments</h2>
+        <% if @bookings.empty? %>
+          <p>There are no comments on this challenge! Check back again later...</p>
+        <% else %>
+          <div class="comments px-0">
+            <% @bookings.each do |booking| %>
+              <div class="comment py-3">
+                <%= image_tag(booking.user.image_url, class: "avatar") %>
+                <%= booking.review %></p>
+              </div>
+            <% end %>
           </div>
-        <%= f.submit "Make offer", class:"btn btn-dark btn-lg rounded-lg", id:"button" %>
         <% end %>
       </div>
     </div>
-  <% end %>
   </div>
-
-
-  <% if !@bookings.empty? && current_user == @challenge.user %>
-    <div class="offers-right">
-      <div class="cardshow my-3 p-4">
-        <div class="card-body">
-          <h2>Offers</h2>
-          <div>
-            <ul class="offers px-0">
-              <% @bookings.each do |booking| %>
-                <li class="py-5">
-                  <h4>User: <%= booking.user.name %> (call me <%= booking.user.nickname %>)</h3>
-                  <p>Offered price: €<%= booking.price %></p>
-                  <p>Offered date of completion: <%= booking.date %></p>
-                  <div class="choose-offer-button">
-                    <%= link_to "Accept offer", "#", class: "btn btn-primary" %>
-                  </div>
-                </li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
 </div>
