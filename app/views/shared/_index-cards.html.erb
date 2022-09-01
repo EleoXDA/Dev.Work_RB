@@ -1,5 +1,11 @@
 <div class="container mt-5 mb-3 cards">
   <div class="grid">
+    <div  data-controller="map"
+      id="map"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+      data-map-markers-value=" <%= @markers.to_json %>"
+      style='width: 100%px; height:500px;'>
+    </div>
     <% @challenges.each_with_index do |challenge, index| %>
       <%# <div class="col-md-4"> %>
         <div class="flex flex-column justify-content-between card p-3 mb-2 card-bg">
@@ -7,7 +13,9 @@
             <div class="d-flex justify-content-between border-bottom pb-3">
               <div class="d-flex flex-row align-items-center ">
                 <div class="image">
-                  <%= image_tag(challenge.user.image_url) %>
+                  <% if challenge.user.image_url %>
+                    <%= image_tag(challenge.user.image_url) %>
+                  <% end %>
                 </div>
                 <div class="ms-2 c-details">
                   <h5><%= challenge.user.name %>
@@ -18,8 +26,8 @@
               </div>
             </div>
             <div class="mb-5 mt-3">
-              <h1 class="heading"><%= challenge.title %>
-              </h1>
+              <h2 class="heading"><%= challenge.title %>
+              </h2>
             </div>
             <div class="my-3">
                 <div class="my-3"> <span class="text1">Deadline: <span class="text2"><%= challenge.deadline.strftime("%B %d, %Y") %>
