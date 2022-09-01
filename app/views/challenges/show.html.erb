@@ -3,12 +3,12 @@
     <%# ALL: The challenge itself %>
     <div class="cardshow p-4" style="height: 58vh;">
       <div class="card-image">
-        <%= image_tag(@challenge.user.image_url) %>
+        <%= image_tag(@challenge.user.image_url) if @challenge.user.image_url%>
       </div>
       <div class="card-body">
         <h1><%= @challenge.title %></h1>
         <p><strong>Maximum price: </strong>€<%= @challenge.price_max %></p>
-        <p><strong>Deadline: </strong><%= @challenge.deadline %></p>
+        <p><strong>Deadline: </strong><%= @challenge.deadline.strftime("%B %d, %Y") %></p>
         <p><strong>Language: </strong><%= @challenge.filter.name %></p>
         <p><%= @challenge.content %></p>
       </div>
@@ -59,11 +59,11 @@
               </ul>
             </div>
           <% end %>
+
         </div>
       </div>
     <% end %>
   </div>
-
   <%# ALL: Comments left on the challenge %>
   <div class="offers-right vh-100">
     <div class="cardshow p-4">
