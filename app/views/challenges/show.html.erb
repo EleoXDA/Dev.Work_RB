@@ -8,7 +8,7 @@
           <div class="card-image">
             <%= image_tag(@challenge.user.image_url) if @challenge.user.image_url%>
           </div>
-          <i class="fa-solid fa-location-pin"></i><%= @challenge.cities %>
+          <p class="city text-left pb-0 mb-0"><%= image_tag "https://freeiconshop.com/wp-content/uploads/edd/location-pin-compact-outline-filled.png",  class:"img-tag" %> <%= @challenge.cities %> </p>
           <div class="card-body">
             <h1><%= @challenge.title %></h1>
             <p><strong>Maximum price: </strong>€<%= @challenge.price_max %></p>
