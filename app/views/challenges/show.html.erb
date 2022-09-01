@@ -7,7 +7,7 @@
       <div class="card-body">
         <h1><%= @challenge.title %></h1>
         <p><strong>Maximum price: </strong>€<%= @challenge.price_max %></p>
-        <p><strong>Deadline: </strong><%= @challenge.deadline %></p>
+        <p><strong>Deadline: </strong><%= @challenge.deadline.strftime("%B %d, %Y") %></p>
         <p><strong>Language: </strong><%= @challenge.filter.name %></p>
         <p><%= @challenge.content %></p>
       </div>
@@ -47,7 +47,7 @@
                 <li class="py-5">
                   <h4>User: <%= booking.user.name %> (call me <%= booking.user.nickname %>)</h3>
                   <p>Offered price: €<%= booking.price %></p>
-                  <p>Offered date of completion: <%= booking.date %></p>
+                  <p>Offered date of completion: <%= booking.date.strftime("%B %d, %Y") %></p>
                   <div class="choose-offer-button">
                     <%= link_to "Accept offer", "#", class: "btn btn-primary" %>
                   </div>
