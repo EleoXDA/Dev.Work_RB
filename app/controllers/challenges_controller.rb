@@ -1,4 +1,6 @@
 class ChallengesController < ApplicationController
+  include ActionView::Helpers::UrlHelper
+
   def show
     @challenge = Challenge.find(params[:id])
     @bookings = @challenge.bookings
@@ -8,6 +10,8 @@ class ChallengesController < ApplicationController
   def index
     if params[:filter]
       @challenges = @challenges.where('filter ILIKE ?', "%#{params[:filter]}%")
+    elsif current_page?(owner_challenges_path)
+      @challenges = current_user.challenges
     else
       @challenges = Challenge.all
     end
