@@ -18,6 +18,13 @@ class ChallengesController < ApplicationController
     else
       @challenges = Challenge.all
     end
+
+    @markers = @challenges.geocoded.map do |challenge|
+      {
+        lat: challenge.latitude,
+        lng: challenge.longitude
+      }
+    end
   end
 
   def new

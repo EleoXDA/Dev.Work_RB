@@ -4,4 +4,8 @@ class Challenge < ApplicationRecord
   has_many :bookings, dependent: :destroy
 
   validates :title, :content, :price_max, :deadline, presence: true
+
+  geocoded_by :location
+
+  after_validation :geocode, if: :location
 end
