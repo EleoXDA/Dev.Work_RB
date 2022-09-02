@@ -82,6 +82,7 @@
           <div class="comments px-0">
             <% @bookings.each do |booking| %>
             <% if !booking.review == "" || !booking.review == nil %>
+            <% end %>
               <div class="comment py-3">
                 <%= image_tag(booking.user.image_url, class: "avatar") if booking.user.image_url %>
                 <%= booking.review %></p>
