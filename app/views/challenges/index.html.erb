@@ -11,17 +11,28 @@
       style='width: 100%px; height:500px;'>
     </div>
   </div>
-  <div class="dropdown">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Filter the languages
-  </button>
-  <%= link_to "Reset filters", challenges_path, class:"btn btn-secondary" %>
-  <ul class="dropdown-menu">
-    <% @filters.each do |filter| %>
-    <li><%= link_to filter.name, challenges_path(filter: filter.name), class:"dropdown-item" %></li>
-    <% end %>
-  </ul>
+  <div class="d-flex justify-content-between">
+        <div class="div">
+    </div>
+        <div class="div">
+    </div>
+        <div class="div">
+    </div>
+        <div class="div">
+    </div>
+    <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Filter the languages
+      </button>
+      <%= link_to "Reset filters", challenges_path, class:"btn btn-secondary" %>
+      <ul class="dropdown-menu">
+        <% @filters.each do |filter| %>
+          <li><%= link_to filter.name, challenges_path(filter: filter.name), class:"dropdown-item" %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="div">
+    </div>
   </div>
-
   <%= render "shared/index-cards" %>
 </div>
