@@ -11,7 +11,7 @@
           <div class="card-image">
             <%= image_tag(@challenge.user.image_url) if @challenge.user.image_url%>
           </div>
-          <p class="city text-left pb-0 mb-0"><%= image_tag "https://freeiconshop.com/wp-content/uploads/edd/location-pin-compact-outline-filled.png",  class:"img-tag" %> <%= @challenge.cities %> </p>
+          <h6><i class="fa-sharp fa-solid fa-location-dot fa-xl"></i> <%= @challenge.location %> </h6>
           <div class="card-body">
             <h1><%= @challenge.title %></h1>
             <p><strong>Maximum price: </strong>€<%= @challenge.price_max %></p>
@@ -81,12 +81,12 @@
         <% else %>
           <div class="comments px-0">
             <% @bookings.each do |booking| %>
-              <% if booking.review %>
-                <div class="comment py-3">
-                  <%= image_tag(booking.user.image_url, class: "avatar") if booking.user.image_url %>
-                    <p><%= booking.review %></p>
-                </div>
-              <% end %>
+            <% if !booking.review == "" || !booking.review == nil %>
+            <% end %>
+              <div class="comment py-3">
+                <%= image_tag(booking.user.image_url, class: "avatar") if booking.user.image_url %>
+                <%= booking.review %></p>
+              </div>
             <% end %>
           </div>
         <% end %>
