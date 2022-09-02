@@ -12,10 +12,10 @@ class ChallengesController < ApplicationController
     if params[:filter]
       @filter = Filter.find_by(name: params[:filter])
       @challenges = Challenge.where('filter_id = ?', @filter.id)
-    elsif !@filter.present?
-      @challenges = Challenge.all
     elsif current_page?(my_challenges_path)
       @challenges = current_user.challenges
+    elsif !@filter.present?
+      @challenges = Challenge.all
     else
       @challenges = Challenge.all
     end
