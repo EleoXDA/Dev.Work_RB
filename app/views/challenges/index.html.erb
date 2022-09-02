@@ -18,7 +18,22 @@
     </div>
         <div class="div">
     </div>
+            <div class="div">
+    </div>
+            <div class="div">
+    </div>
+
+
+            <div class="div">
+    </div>
+            <div class="div">
+    </div>
         <div class="div">
+        <% if @filter.present? %>
+          <p><%= "Your filter is #{@filter.name}" %></p>
+        <% else %>
+          <p><%= "Your have not selected any filter" %></p>
+        <% end %>
     </div>
     <div class="dropdown">
       <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -31,8 +46,9 @@
         <% end %>
       </ul>
     </div>
-    <div class="div">
+            <div class="div">
     </div>
+
   </div>
   <%= render "shared/index-cards" %>
 </div>
