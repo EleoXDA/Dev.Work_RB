@@ -3,7 +3,7 @@
     <%# ALL: The challenge itself %>
     <div class="cardshow p-4" style="height: 58vh;">
       <div class="card-image">
-        <%= image_tag(@challenge.user.image_url) if @challenge.user.image_url%>
+        <%= cl_image_tag(@challenge.user.photo.key) if @challenge.user.photo.attached?%>
       </div>
       <div class="card-body">
         <h1><%= @challenge.title %></h1>
@@ -75,7 +75,7 @@
           <div class="comments px-0">
             <% @bookings.each do |booking| %>
               <div class="comment py-3">
-                <%= image_tag(booking.user.image_url, class: "avatar") %>
+                <%= cl_image_tag(booking.user.photo.key, class: "avatar") %>
                 <%= booking.review %></p>
               </div>
             <% end %>

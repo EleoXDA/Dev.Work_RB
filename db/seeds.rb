@@ -30,8 +30,7 @@ filter_array = []
 end
 
 user_array = []
-20.times do
-  array = [
+array = [
   "https://gravatar.com/avatar/38e6bc27f9d54cca67426924eb366a51?s=200&d=robohash&r=x",
   "https://gravatar.com/avatar/649d7427af905218ac3e3fc2c2e6c2d4?s=200&d=robohash&r=x",
   "https://gravatar.com/avatar/f00a238b97348910aeb3a18ac7920301?s=200&d=robohash&r=x",
@@ -41,11 +40,18 @@ user_array = []
   "https://gravatar.com/avatar/e0399004b9c37b2c35525ad34c119620?s=200&d=robohash&r=x",
   "https://gravatar.com/avatar/dc0d182da3d2c3ee00549396b264e60b?s=200&d=robohash&r=x",
   "https://gravatar.com/avatar/18b00cafdca2767b9afb62b368110b7a?s=200&d=robohash&r=x"]
+# files = []
+# array.each do |url|
+#   puts "Populating files"
+#   files << URI.open(url)
+# end
+20.times do
+  puts "Creating users!"
   user = User.new(nickname: Faker::FunnyName.name,
                   name: Faker::Name.name,
                   email: Faker::Internet.email,
-                  password: "123456",
-                  image_url: array.sample)
+                  password: "123456")
+  user.photo.attach(io: URI.open(array.sample), filename: "profile.png", content_type: "image/png")
   user.save!
   user_array << user
 end
