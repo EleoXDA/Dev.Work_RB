@@ -25,7 +25,8 @@ title = ['Help needed', 'Please FIX ASAP', 'DEV to the rescue', 'Stuck in loadin
 
 addresses = ["Geneva", "Zurich", "Bern", "Cambridge", "Oxford", "Kathmandu", "Berlin", "Frankfurt", "Paris", "Bristol",
              "Paris", "Essen", "Lyon", "Kyiv", "Madrid", "Porto", "Lisbon", "Seville", "Palermo", "Vienna", "Delhi",
-             "San Fransisco", "Washington", "Nairobi", "Melbourne", "Canberra", "Montreal"]
+             "San Francisco", "Washington", "Nairobi", "Melbourne", "Canberra", "Montreal", "Beijing", "Tokyo",
+             "Mumbai", "Osaka", "Istanbul", "Rio de Janeiro", "Jakarta", "Chicago"]
 
 array = ["https://gravatar.com/avatar/38e6bc27f9d54cca67426924eb366a51?s=200&d=robohash&r=x",
          "https://gravatar.com/avatar/649d7427af905218ac3e3fc2c2e6c2d4?s=200&d=robohash&r=x",
