@@ -3,9 +3,9 @@
 
 
 <div class="container">
-  <div class="grid my-4">
-    <div>
-      <div class="row">
+  <div class="grid show-grid my-4">
+    <div class="grid-left">
+      <div class="row show-top-left">
         <%# ALL: The challenge itself %>
         <div class="cardshow">
           <div class="card-image">
@@ -21,7 +21,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row show-top-right">
         <%# ONLY USERS: Form for those making an offer %>
         <% if current_user != @challenge.user %>
           <div class="cardshow mt-3">
@@ -73,7 +73,7 @@
       </div>
     </div>
     <%# ALL: Comments left on the challenge %>
-    <div class="cardshow p-4">
+    <div class="cardshow grid-right p-4">
       <div class="card-body-1">
         <h2>Comments</h2>
         <% if @bookings.empty? %>
@@ -81,10 +81,12 @@
         <% else %>
           <div class="comments px-0">
             <% @bookings.each do |booking| %>
-              <div class="comment py-3">
-                <%= image_tag(booking.user.image_url, class: "avatar") %>
-                <%= booking.review %></p>
-              </div>
+              <% if booking.review %>
+                <div class="comment py-3">
+                  <%= image_tag(booking.user.image_url, class: "avatar") if booking.user.image_url %>
+                    <p><%= booking.review %></p>
+                </div>
+              <% end %>
             <% end %>
           </div>
         <% end %>
