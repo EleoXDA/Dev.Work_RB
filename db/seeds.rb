@@ -23,24 +23,9 @@ title = ['Help needed', 'Please FIX ASAP', 'DEV to the rescue', 'Stuck in loadin
          "Doesn't Start up", 'Need a hand', 'Please please', 'Desperately in need',
          'New workplace needs a Dev', 'Fix this join us']
 
-addresses = ["Geneva, Switzerland",
-             "Zurich, Switzerland",
-             "Bern, Switzerland",
-             "University of Cambridge, Cambridge, United Kingdom",
-             "University of Oxford, Oxford, United Kingdom",
-             "Baneshwor, Kathmandu, Nepal",
-             "Berlin, Germany",
-             "Frankfurt, Germany",
-             "Paris, France",
-             "Bristol, Prais",
-             "Lyon, France",
-             "Kyiv, Ukraine",
-             "Madrid, Spain",
-             "Porto, Portugal",
-             "Lisbon, Portugal",
-             "Seville, Spain",
-             "Palermo, Italy",
-             "Vienna, Italy"]
+addresses = ["Geneva", "Zurich", "Bern", "Cambridge", "Oxford", "Kathmandu", "Berlin", "Frankfurt", "Paris", "Bristol",
+             "Paris", "Essen", "Lyon", "Kyiv", "Madrid", "Porto", "Lisbon", "Seville", "Palermo", "Vienna", "Delhi",
+             "San Fransisco", "Washington", "Nairobi", "Melbourne", "Canberra", "Montreal"]
 
 array = ["https://gravatar.com/avatar/38e6bc27f9d54cca67426924eb366a51?s=200&d=robohash&r=x",
          "https://gravatar.com/avatar/649d7427af905218ac3e3fc2c2e6c2d4?s=200&d=robohash&r=x",
@@ -77,8 +62,7 @@ end
                             deadline: Faker::Date.between(from: '2022-09-10', to: '2022-12-31'),
                             filter: filter_array.sample,
                             user: user_array.sample,
-                            location: addresses.sample,
-                            cities: cities.sample)
+                            location: addresses.sample)
   challenge.save!
 end
 
