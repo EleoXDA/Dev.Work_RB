@@ -1,3 +1,18 @@
+<div class="container offers-container vh-100 my-3">
+  <div class="offers-left">
+    <%# ALL: The challenge itself %>
+    <div class="cardshow p-4" style="height: 58vh;">
+      <div class="card-image">
+        <%= cl_image_tag(@challenge.user.photo.key) if @challenge.user.photo.attached?%>
+      </div>
+      <div class="card-body">
+        <h1><%= @challenge.title %></h1>
+        <p><strong>Maximum price: </strong>€<%= @challenge.price_max %></p>
+        <p><strong>Deadline: </strong><%= @challenge.deadline.strftime("%B %d, %Y") %></p>
+        <p><strong>Language: </strong><%= @challenge.filter.name %></p>
+        <p><%= @challenge.content %></p>
+      </div>
+    </div>
 
 
 
@@ -84,7 +99,8 @@
             <% if !booking.review == "" || !booking.review == nil %>
             <% end %>
               <div class="comment py-3">
-                <%= image_tag(booking.user.image_url, class: "avatar") if booking.user.image_url %>
+
+                <%= cl_image_tag(booking.user.photo.key, class: "avatar") %>
                 <%= booking.review %></p>
               </div>
             <% end %>

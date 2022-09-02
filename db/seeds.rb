@@ -46,12 +46,19 @@ filter_array = []
 end
 
 user_array = []
+
+# files = []
+# array.each do |url|
+#   puts "Populating files"
+#   files << URI.open(url)
+# end
 20.times do
+  puts "Creating users!"
   user = User.new(nickname: Faker::FunnyName.name,
                   name: Faker::Name.name,
                   email: Faker::Internet.email,
-                  password: "123456",
-                  image_url: array.sample)
+                  password: "123456")
+  user.photo.attach(io: URI.open(array.sample), filename: "profile.png", content_type: "image/png")
   user.save!
   user_array << user
 end
