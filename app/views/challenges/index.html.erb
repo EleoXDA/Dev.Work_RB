@@ -1,7 +1,9 @@
 <div class="my-3">
-  <div class="container text-center index-image">
-    <h1>Welcome to Dev.Work</h1>
-    <p>Find challenges below and help out fellow developers</p>
+  <div class="container header text-center index-image">
+    <div class="container-fluid">
+      <h1>Welcome to Dev.Work</h1>
+      <p>Find challenges below and help out fellow developers</p>
+    </div>
   </div>
   <div class="container">
     <div data-controller="map"
@@ -11,6 +13,7 @@
       style='width: 100%px; height:500px;'>
     </div>
   </div>
+<% if current_page?(challenges_path) %>
   <div class="d-flex justify-content-between">
     <div class="spacerr"></div>
     <div class="spacerr"></div>
@@ -45,5 +48,6 @@
     <div class="spacerr"></div>
     <div class="spacerr"></div>
   </div>
+  <% end %>
   <%= render "shared/index-cards" %>
 </div>
