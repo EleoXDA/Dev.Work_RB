@@ -12,27 +12,22 @@
     </div>
   </div>
   <div class="d-flex justify-content-between">
-        <div class="div">
-    </div>
-        <div class="div">
-    </div>
-        <div class="div">
-    </div>
-            <div class="div">
-    </div>
-            <div class="div">
-    </div>
-
-
-            <div class="div">
-    </div>
-            <div class="div">
-    </div>
+    <div class="spacerr"></div>
+    <div class="spacerr"></div>
+    <div class="spacerr"></div>
+    <div class="spacerr"></div>
+    <div class="spacerr"></div>
+    <div class="spacerr"></div>
+    <div class="spacerr"></div>
         <div class="div">
         <% if @filter.present? %>
+        <div class="container mt-2 pt-1 bg-white">
           <p><%= "Your filter is #{@filter.name}" %></p>
+          </div>
         <% else %>
-          <p><%= "Your have not selected any filter" %></p>
+          <div class="container mt-2 pt-1 bg-white">
+            <p><%= "Your have not selected any filter" %></p>
+          </div>
         <% end %>
     </div>
     <div class="dropdown">
@@ -46,9 +41,9 @@
         <% end %>
       </ul>
     </div>
-            <div class="div">
-    </div>
-
+    <div class="spacerr"></div>
+    <div class="spacerr"></div>
+    <div class="spacerr"></div>
   </div>
   <%= render "shared/index-cards" %>
 </div>
