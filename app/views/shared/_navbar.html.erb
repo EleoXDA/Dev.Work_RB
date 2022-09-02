@@ -25,8 +25,11 @@
             <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              <%= link_to "My Challenges", my_challenges_path, class: "dropdown-item" %>
+              <%= link_to "My Bookings", my_bookings_path, class: "dropdown-item" %>
             </div>
-          </li>
+
+          </div>
         <% else %>
           <li>
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
