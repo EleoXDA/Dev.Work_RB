@@ -2,6 +2,14 @@
 //   display: flex;
 //   justify-content: space-between;
 // }
+body{
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8),rgba(221, 193, 193, 0.8)), url(wallpaper.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+
+}
 
 .offers-container {
   display: flex;
