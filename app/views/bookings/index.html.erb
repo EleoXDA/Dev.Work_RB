@@ -1,9 +1,13 @@
-<div class="container cards">
-  <h1 class="my-3">Your offers</h1>
+<div class="my-3">
+  <div class="container header text-center index-image">
+    <div class="container-fluid">
+      <h1>Your Offers</h1>
   <% if @user_bookings.empty? %>
     <p>You haven't made any offers yet! Any offers you make will be shown here...</p>
   <% else %>
     <p>Below you can see all the offers you have made</p>
+    </div>
+  </div>
     <div class="grid">
       <% @user_bookings.each do |booking| %>
         <div class="card my-3 py-3">
