@@ -1,9 +1,20 @@
 // Import page-specific CSS files here.
 @import "home";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap');
 
-body {
-    background-color: #eee;
+body{
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8),rgba(221, 193, 193, 0.8)), url(wallpaper.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+
 }
+.container h1{
+  font-family: 'Roboto', sans-serif;
+  font-weight:bold; 
+}
+
 
 .img-tag{
   height:20px;
