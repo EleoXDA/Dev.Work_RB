@@ -14,9 +14,8 @@ class ChallengesController < ApplicationController
       @challenges = Challenge.where('filter_id = ?', @filter.id)
     elsif !@filter.present?
       @challenges = Challenge.all
-    elsif current_page?(owner_challenges_path)
+    elsif current_page?(my_challenges_path)
       @challenges = current_user.challenges
-
     else
       @challenges = Challenge.all
     end

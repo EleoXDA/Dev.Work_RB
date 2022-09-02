@@ -1,4 +1,8 @@
 class BookingsController < ApplicationController
+  def index
+    @user_bookings = Booking.where(user: current_user)
+  end
+
   def create
     @challenge = Challenge.find(params[:challenge_id])
     @booking = Booking.new(booking_params)
