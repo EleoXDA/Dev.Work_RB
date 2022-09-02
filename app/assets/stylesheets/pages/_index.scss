@@ -5,6 +5,23 @@ body {
     background-color: #eee;
 }
 
+.img-tag{
+  height:20px;
+  width: 20px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.fa-location-dot{
+  color:#3fb1ce
+}
+
+#map {
+  border-radius: 20px;
+  border: 0px solid black;
+  margin-bottom: 30px;
+  box-shadow: 0 0 12px 0 rgba(0,0,0,0.2);
+}
 .rounded{
   border-radius: 50%;
 }
@@ -63,7 +80,13 @@ body {
 
 .text2 {
     font-size: 20px;
-    color:#070500
+    color:#070500;
+}
+
+.city{
+  color:gray;
+  font-size:15px;
+  font-weight:bold;
 }
 
 

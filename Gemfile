@@ -8,10 +8,13 @@ gem "image_processing", ">= 1.2"
 # Random image gem
 gem "image_suckr"
 
+
+gem "dotenv-rails", groups: [:development, :test]
 # Font-awesome
 
 gem "font-awesome-rails"
 
+gem "geocoder"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3", ">= 7.0.3.1"
 

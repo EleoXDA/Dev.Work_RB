@@ -1,0 +1,31 @@
+<div class="container cards">
+  <h1 class="my-3">Your offers</h1>
+  <% if @user_bookings.empty? %>
+    <p>You haven't made any offers yet! Any offers you make will be shown here...</p>
+  <% else %>
+    <p>Below you can see all the offers you have made</p>
+    <div class="grid">
+      <% @user_bookings.each do |booking| %>
+        <div class="card my-3 py-3">
+          <h3><%= booking.challenge.title %></h3>
+          <div class="split-card">
+            <div class="split-items">
+              <p><strong>Their maximum price: </strong></p>
+              <p><%= booking.challenge.price_max %></p>
+              <p><strong>The deadline: </strong></p>
+              <p><%= booking.challenge.deadline %></p>
+            </div>
+            <div class="split-items">
+              <p><strong>My offered price: </strong></p>
+              <p><%= booking.price %></p>
+              <p><strong>My proposed date: </strong></p>
+              <p><%= booking.date %></p>
+            </div>
+          </div>
+          <%= link_to "See challenge", challenge_path(booking.challenge), class:"btn btn-dark btn-lg rounded-lg mx-3", id:"button" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>

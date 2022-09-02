@@ -12,11 +12,19 @@ class ChallengesController < ApplicationController
     if params[:filter]
       @filter = Filter.find_by(name: params[:filter])
       @challenges = Challenge.where('filter_id = ?', @filter.id)
-    elsif current_page?(owner_challenges_path)
+    elsif !@filter.present?
+      @challenges = Challenge.all
+    elsif current_page?(my_challenges_path)
       @challenges = current_user.challenges
-
     else
       @challenges = Challenge.all
+    end
+
+    @markers = @challenges.geocoded.map do |challenge|
+      {
+        lat: challenge.latitude,
+        lng: challenge.longitude
+      }
     end
   end
 

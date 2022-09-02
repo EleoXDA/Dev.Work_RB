@@ -11,10 +11,15 @@
                     <%= cl_image_tag(challenge.user.photo.key) %>
                   <% end %>
                 </div>
+                <%# <div class="ms-2 c-details">
+                   <span>1 days ago</span>
+              </div> %>
                 <div class="ms-2 c-details">
                   <h5><%= challenge.user.name %>
                   </h5>
+                  <h6><i class="fa-sharp fa-solid fa-location-dot fa-xl"></i> <%= challenge.location %></h6>
                 </div>
+
               </div>
               <div class="badge"><%= challenge.filter.name %>
               </div>

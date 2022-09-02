@@ -11,4 +11,11 @@
 @import "components/index";
 @import "pages/index";
 @import "pages/show";
+@import "pages/my_offers";
 
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  min-height: 100vh;
+}
