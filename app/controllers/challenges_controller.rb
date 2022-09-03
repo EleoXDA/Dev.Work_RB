@@ -49,6 +49,17 @@ class ChallengesController < ApplicationController
     redirect_to challenges_path(@challenges), status: :see_other
   end
 
+  def edit
+    @challenge = Challenge.find(params[:id])
+  end
+
+  def update
+    @challenge = Challenge.find(params[:id])
+    @challenge.update(title: params[:challenge][:title], content: params[:challenge][:content],
+                      price_max: params[:challenge][:price_max], deadline: params[:challenge][:deadline])
+    redirect_to challenge_path(@challenge), status: :see_other
+  end
+
   private
 
   def challenge_params
