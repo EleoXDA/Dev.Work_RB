@@ -1,5 +1,9 @@
 // Specific CSS for your home-page
 body{
-
+  background-image: linear-gradient(rgba(0,50,0,0.8),rgba(0,0,0,0.8)), url(wallpaper.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
   text-align: center;
 }

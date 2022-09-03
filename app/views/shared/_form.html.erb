@@ -6,6 +6,7 @@
         <%= simple_form_for @challenge do |f| %>
           <%= f.input :title, placeholder: 'Add a Title' %>
           <%= f.input :content, placeholder: 'Describe in Details' %>
+          <%= f.input :location, placeholder: 'Specify Challenge location' %>
           <%= f.association :filter, collection: Filter.all.order(:name), input_html: { data: { controller: "tom-select" } } %>
           <%= f.input :price_max, placeholder: 'Put maximum price in Euros' %>
           <%= f.input :deadline, placeholder: 'Put a deadline for your project' %>
