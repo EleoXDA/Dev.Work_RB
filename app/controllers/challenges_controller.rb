@@ -55,9 +55,7 @@ class ChallengesController < ApplicationController
 
   def update
     @challenge = Challenge.find(params[:id])
-    @challenge.update(title: params[:challenge][:title], content: params[:challenge][:content],
-                      price_max: params[:challenge][:price_max], deadline: params[:challenge][:deadline],
-                      filter: params[:challenge][:filter], location: params[:challenge][:location])
+    @challenge.update(challenge_params)
     redirect_to challenge_path(@challenge)
   end
 
