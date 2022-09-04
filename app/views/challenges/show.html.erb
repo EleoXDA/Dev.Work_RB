@@ -62,6 +62,7 @@
                   <ul class="px-0 offers">
                     <% @bookings.each do |booking| %>
                       <li class="py-3">
+                        <%= cl_image_tag(booking.user.photo.key, class: "avatar") %>
                         <h4>User: <%= booking.user.name %> (call me <%= booking.user.nickname %>)</h3>
                         <p>Offered price: €<%= booking.price %></p>
                         <p>Offered date of completion: <%= booking.date %></p>
@@ -82,24 +83,26 @@
     <div class="cardshow grid-right p-4">
       <div class="card-body-1">
         <h2>Comments</h2>
-        <% if @bookings.empty? %>
-          <p>There are no comments on this challenge! Check back again later...</p>
-        <% else %>
-          <div class="comments px-0">
-            <% @bookings.each do |booking| %>
-            <% if !booking.review == "" || !booking.review == nil %>
-            <% end %>
-              <div class="comment py-3">
+        <%# WE HAVE NO COMMENTS SECTION IMPLEMENTED YET %>
 
-                <%= cl_image_tag(booking.user.photo.key, class: "avatar") %>
-                <%= booking.review %></p>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
+        <%# <% if @bookings.empty? %>
+          <%# <p>There are no comments on this challenge! Check back again later...</p> %>
+        <%# <% else %>
+          <%# <div class="comments px-0"> %>
+            <%# <% @bookings.each do |booking| %>
+            <%# <% if !booking.review == "" || !booking.review == nil %>
+            <%# <% end %>
+              <%# <div class="comment py-3"> %>
+
+                <%# <%= cl_image_tag(booking.user.photo.key, class: "avatar") %>
+                <%# <%= booking.review %>
+              <%# </div> %>
+            <%# <% end %>
+          <%# </div> %>
+        <%# <% end %>
+      <%# </div> %>
+    <%# </div> %>
+  <%# </div> %>
 
 
 </div>
