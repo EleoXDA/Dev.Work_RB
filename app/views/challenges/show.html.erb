@@ -1,7 +1,7 @@
 <div class="container">
   <div class="grid show-grid my-4">
-    <div class="grid-left">
-      <div class="row show-top-left">
+    <div class="left">
+      <div class="row show">
         <%# ALL: The challenge itself %>
         <div class="cardshow">
           <div class="card-image">
@@ -15,7 +15,8 @@
               <p><strong>Deadline: </strong><%= @challenge.deadline.strftime("%B %d, %Y") %></p>
               <p><strong>Language: </strong><%= @challenge.filter.name %></p>
               <p><%= @challenge.content %></p>
-              <%= link_to "Delete this challenge", challenge_path(@challenge), class: "btn btn-dark", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this challenge?" } %>
+              <%= link_to "Delete this challenge", challenge_path(@challenge), class: "btn btn-dark",
+                  data: { turbo_method: :delete, turbo_confirm: "Are you sure to delete this challenge?" } %>
               <%= link_to "Update this challenge", edit_challenge_path(@challenge), class: "btn btn-info" %>
             <% elsif current_user != @challenge.user %>
               <h1><%= @challenge.title %></h1>
@@ -80,7 +81,7 @@
       </div>
     </div>
     <%# ALL: Comments left on the challenge %>
-    <div class="cardshow grid-right p-4">
+    <div class="cardshow right p-4">
       <div class="card-body-1">
         <h2>Comments</h2>
         <%# WE HAVE NO COMMENTS SECTION IMPLEMENTED YET %>
