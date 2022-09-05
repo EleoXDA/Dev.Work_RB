@@ -6,15 +6,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :challenges, only: %i[show index new create destroy edit update] do
-    # resources :reviews, only: %i[new create]
     resources :bookings, only: %i[create update] do
-      member do
-        get :review
-      end
+      resources :comments, only: %i[create]
     end
   end
   resources :bookings, only: %i[destroy]
-  # resources :reviews, only: %i[edit update destroy]
+  # resources :comments, only: %i[edit update destroy]
   get '/my_challenges', action: :index, controller: 'challenges'
   get '/my_bookings', action: :index, controller: 'bookings'
 end
