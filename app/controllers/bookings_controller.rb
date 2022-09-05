@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
     end
   end
 
-  # def review
+  # def comment
   #   @booking = Booking.find(params[:id])
   #   @challenge = Challenge.find(params[:challenge_id])
   # end
