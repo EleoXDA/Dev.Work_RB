@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :challenges, only: %i[show index new create destroy edit update] do
     resources :bookings, only: %i[create update] do
-      resources :comments, only: %i[create]
+      resources :comments, only: :create
     end
   end
   resources :bookings, only: %i[destroy]
