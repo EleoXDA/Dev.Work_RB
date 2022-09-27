@@ -84,13 +84,13 @@
     <div class="cardshow p-4">
       <div class="card-body-1">
         <h2>Comments</h2>
-        <% if @comments.empty? %>
+        <% if @comments.nil? %>
           <p>There are no comments on this challenge! Check back again later...</p>
         <% else %>
           <div class="comments px-0">
             <% @comments.each do |comment| %>
               <div class="comment py-3">
-                <%= cl_image_tag(comment.user.photo.key, class: "avatar")
+                <%= cl_image_tag(comment.user.photo.key, class: "avatar") %>
                 <%= comment %>
               </div>
             <% end %>
