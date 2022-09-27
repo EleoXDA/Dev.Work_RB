@@ -22,7 +22,7 @@ export default class extends Controller {
       bounds.extend([marker.lng, marker.lat])
 
     })
-    this.map.fitBounds(bounds, {padding: 50})
+    this.map.fitBounds(bounds, {padding: 50, maxZoom: 50})
   }
 
   #addMarkersToMap() {
