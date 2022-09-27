@@ -53,7 +53,7 @@ body{
   border: none;
   transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 15px;
   box-shadow: 0 0 12px 0 rgba(0,0,0,0.2);
   // margin: 10px;
 }
@@ -107,14 +107,14 @@ body{
 
 .grid-left {
   height: 80vh;
-  border-radius: 20px;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
 }
 
 
 .show-top-left {
-  border-radius: 20px;
+  border-radius: 15px;
   overflow-y: scroll;
   flex-grow: 1;
 }
@@ -124,13 +124,13 @@ body{
 }
 
 .show-top-right {
-  border-radius: 20px;
+  border-radius: 15px;
 }
 
 .grid-right {
   height: 80vh;
   overflow-y: scroll;
-  border-radius: 20px;
+  border-radius: 15px;
 }
 
 .grid-right::-webkit-scrollbar {
