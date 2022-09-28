@@ -209,6 +209,9 @@ GEM
     omniauth-oauth2 (1.8.0)
       oauth2 (>= 1.4, < 3)
       omniauth (~> 2.0)
+    omniauth-rails_csrf_protection (1.0.1)
+      actionpack (>= 4.2)
+      omniauth (~> 2.0)
     orm_adapter (0.5.0)
     pg (1.4.3)
     public_suffix (5.0.0)
@@ -341,8 +344,8 @@ DEPENDENCIES
   image_suckr
   jbuilder
   jsbundling-rails
-  omniauth
   omniauth-github
+  omniauth-rails_csrf_protection
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.3, >= 7.0.3.1)
