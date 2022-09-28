@@ -116,6 +116,30 @@ body{
 //   height: 50px;
 //   width: 50px;
 // }
+.index-event-card{
+  position: absolute;
+  top: 75px;
+  right: 20px;
+  padding: 5px;
+  width: 250px;
+  height: 54rem;
+  border-radius: 15px;
+  border: #555B6E;
+  border-width: 3px;
+  border-style: dashed;
+  color:#555B6E;
+  background-color: rgba($color: #ffffff, $alpha: 0.5);
+}
+
+.adlink {
+  color: #8d7197 !important;
+  text-decoration: none !important;
+  text-shadow: 2px #555B6E;
+}
+
+.adlink:hover {
+  color:#555B6E !important;
+}
 
 .image img{
   height: 50px;
@@ -123,4 +147,19 @@ body{
   border-radius:50%;
   border: 1px solid rgba(43, 44, 43, 0.718);
   box-shadow: 2px 2px #05060636;
+}
+
+#filtertext {
+  border-radius: 15px !important;
+  height: 30px;
+}
+
+#filterbutton{
+  border-radius: 15px !important;
+
+}
+
+#resetfilterbutton{
+  border-radius: 15px !important;
+
 }
