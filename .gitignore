@@ -41,4 +41,4 @@
 *.swp
 .DS_Store
 .env*
-/config/initializers
+# /config/initializers
