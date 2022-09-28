@@ -1,0 +1,66 @@
+.sign-in-container {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+.sign-in-page {
+
+}
+
+.blank-row {
+  height: 15vh;
+}
+
+.sign-in-header {
+  margin: 10px 0;
+}
+
+.sign-in-box {
+  display: flex;
+  padding: 60px 40px 20px 40px;
+  width: 25vw;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #555b6eb9;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.7);
+}
+
+.sign-in-button {
+  // width: 100%;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  color: rgb(255, 255, 255);
+  // width: 100%;
+
+  &:hover {
+
+    opacity: 0.7;
+    color: black;
+    transition: 0.3s;
+  }
+}
+
+
+.devise-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#github-create-button {
+  background-color: #787D90;
+  color: white;
+  box-shadow: inset 0 0 0 4px #ffffff0b;
+  text-align: center;
+
+  &:hover {
+    background-color: white;
+    opacity: 0.9;
+    color: black;
+    transition: 0.3s;
+  }
+}
