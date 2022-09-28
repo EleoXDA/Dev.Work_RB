@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row d-flex justify-content-around">
+    <div class="map-profile">
+      <div class="d-flex flex-row justify-content-between align-items-center">
+        <div style="margin-right:30px">
+          <%# if user.photo.key %>
+            <%#= cl_image_tag user.photo.key, class: "avatar-custom", style:"height:80px !important; width:80px !important" %>
+          <%# elsif user.image.nil? %>
+            <%#= image_tag "userphoto_square.jpg", class: "avatar-custom", style: "height:80px; width:67.8px" %>
+          <%# else %>
+            <%#= image_tag "#{user.image}", class: "avatar-custom", style:"height:80px !important; width:80px !important" %>
+          <%# end %>
+        </div>
+      <div class="d-flex flex-row justify-content-between">
+
+        <div class="d-flex flex-column justify-content-center align-items-center">
+          <h5 style="color:#555B6E"><%= challenge.title %></h5>
+          <h6 style="color:#8d7197"><%#= challenge.language %></h6>
+          <div class="d-flex align-items-center">
+            <%#= link_to "GitHub", user.html_url, class:"btn rounded-5 btn-sm", style:"background-color:#8d7197; color:white" %>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
