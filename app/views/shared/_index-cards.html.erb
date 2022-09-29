@@ -7,7 +7,9 @@
             <div class="d-flex justify-content-between border-bottom pb-3">
               <div class="d-flex flex-row align-items-center ">
                 <div class="image">
-                  <% if challenge.user.photo.attached? %>
+                  <% if challenge.user.image? %>
+                    <%= image_tag "#{challenge.user.image}" %>
+                  <% elsif challenge.user.photo.attached? %>
                     <%= cl_image_tag(challenge.user.photo.key) %>
                   <% end %>
                 </div>

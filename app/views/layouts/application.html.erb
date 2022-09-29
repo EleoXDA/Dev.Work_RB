@@ -3,20 +3,28 @@
 <%# class h-100 sticks the footer at the bottom %>
 <html class="h-100">
   <head>
-    <title>Rbnb</title>
+    <title>Dev.Work</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
-
+    <%# Bootstrap %>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <%# Fontawesome %>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
+    <%# Box Icons %>
+      <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- CDN link for jquery -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+      </script>
+    <!-- CDN link for sticky-kit jquery plugin -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+      </script>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-
-
-
   </head>
 
   <body>
@@ -25,7 +33,7 @@
       <%# <div class="d-flex flex-column min-vh-100"> %>
       <div>
         <% unless current_page?(root_path) %>
-          <%= render "shared/navbar" %>
+          <%= render "shared/sidebar" %>
         <% end %>
         <%= render 'shared/flashes' %>
         <article class="flex-grow-1">
@@ -40,4 +48,9 @@
       </div>
     </div>
   </body>
+  <script>
+    $(document).ready(function () {
+      $(".sidead").stick_in_parent();
+    });
+  </script>
 </html>
