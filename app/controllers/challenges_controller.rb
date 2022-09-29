@@ -21,7 +21,8 @@ class ChallengesController < ApplicationController
     @markers = @challenges.geocoded.map do |challenge|
       {
         lat: challenge.latitude,
-        lng: challenge.longitude
+        lng: challenge.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {challenge: challenge})
       }
     end
   end

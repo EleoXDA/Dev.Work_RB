@@ -6,6 +6,8 @@
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome";
+@import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder";
+
 
 // Your CSS partials
 @import "components/index";
@@ -13,6 +15,7 @@
 @import "pages/show";
 @import "pages/my_offers";
 @import "pages/home";
+@import "pages/devise";
 
 .wrapper {
   display: flex;

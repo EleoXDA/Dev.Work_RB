@@ -81,29 +81,21 @@
       </div>
     </div>
     <%# ALL: Comments left on the challenge %>
-    <div class="cardshow right p-4">
+    <div class="cardshow p-4">
       <div class="card-body-1">
         <h2>Comments</h2>
-        <%# WE HAVE NO COMMENTS SECTION IMPLEMENTED YET %>
-
-        <%# <% if @bookings.empty? %>
-          <%# <p>There are no comments on this challenge! Check back again later...</p> %>
-        <%# <% else %>
-          <%# <div class="comments px-0"> %>
-            <%# <% @bookings.each do |booking| %>
-            <%# <% if !booking.review == "" || !booking.review == nil %>
-            <%# <% end %>
-              <%# <div class="comment py-3"> %>
-
-                <%# <%= cl_image_tag(booking.user.photo.key, class: "avatar") %>
-                <%# <%= booking.review %>
-              <%# </div> %>
-            <%# <% end %>
-          <%# </div> %>
-        <%# <% end %>
-      <%# </div> %>
-    <%# </div> %>
-  <%# </div> %>
-
-
-</div>
+        <% if @comments.nil? %>
+          <p>There are no comments on this challenge! Check back again later...</p>
+        <% else %>
+          <div class="comments px-0">
+            <% @comments.each do |comment| %>
+              <div class="comment py-3">
+                <%= cl_image_tag(comment.user.photo.key, class: "avatar") %>
+                <%= comment %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>

@@ -1,41 +1,42 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-4">
-      <h2>Sign up</h2>
-
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name),
-        data: {turbo: false}) do |f| %>
-        <%= f.error_notification %>
-
-        <div class="form-inputs">
-          <%= f.input :email,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "email" }%>
-          <%= f.input :name,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "email" }%>
-          <%= f.input :nickname,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "email" }%>
-          <%= f.input :password,
-                      required: true,
-                      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :password_confirmation,
-                      required: true,
-                      input_html: { autocomplete: "new-password" } %>
-          <%= f.input :photo, as: :file %>
-        </div>
-
-        <div class="form-actions">
-          <%= f.button :submit, "Sign up" %>
-        </div>
-      <% end %>
-
-      <%= render "devise/shared/links" %>
-	  </div>
+<div class="signup border-0">
+  <div class="row blank-row">
+  </div>
+  <div class="row sign-in-container">
+    <div class="col-3 sign-in-page">
+      <div class="sign-in-box">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
+          <%= f.error_notification %>
+          <% if false %>
+          <div class="form-inputs rounded-3">
+            <%= f.hidden_field :nickname,
+                        required: false,
+                        autofocus: true,
+                        input_html: { autocomplete: "nickname" }%>
+            <%= f.hidden_field :name,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "name" }%>
+            <%= f.hidden_field :email,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "email" }%>
+            <%= f.hidden_field :location,
+                        required: false,
+                        autofocus: true,
+                        input_html: { autocomplete: "location" }%>
+            <%= f.hidden_field :photo, as: :file %>
+            <%= f.hidden_field :password,
+                        required: true,
+                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                        input_html: { autocomplete: "new-password" } %>
+            <%= f.hidden_field :password_confirmation,
+                        required: true,
+                        input_html: { autocomplete: "new-password" } %>
+          </div>
+          <% end %>
+        <% end %>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
   </div>
 </div>
