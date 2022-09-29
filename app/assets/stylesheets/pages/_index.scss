@@ -104,6 +104,14 @@ body{
   font-weight:bold;
 }
 
+.mapboxgl-ctrl-bottom-right{
+  display:none !important
+}
+
+.mapboxgl-ctrl-bottom-left{
+  display:none !important
+}
+
 
 .avatar-img{
   height:50px;
@@ -118,27 +126,28 @@ body{
 // }
 .index-event-card{
   position: absolute;
-  top: 75px;
+  top: 0px;
+  margin-top: 15px;
   right: 20px;
   padding: 5px;
   width: 250px;
   height: 54rem;
   border-radius: 15px;
-  border: #555B6E;
+  border: hsla(0, 0%, 100%, 0.8);
   border-width: 3px;
   border-style: dashed;
-  color:#555B6E;
-  background-color: rgba($color: #ffffff, $alpha: 0.5);
+  color:white;
+  background-color: rgba($color: #000000, $alpha: 0.5);
 }
 
 .adlink {
-  color: #8d7197 !important;
+  color: rgb(255, 255, 255) !important;
   text-decoration: none !important;
-  text-shadow: 2px #555B6E;
+  font-weight: bold;
 }
 
 .adlink:hover {
-  color:#555B6E !important;
+  text-decoration: underline !important;
 }
 
 .image img{
