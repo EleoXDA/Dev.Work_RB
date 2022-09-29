@@ -1,0 +1,78 @@
+<div class="sidebar" data-controller="sidebar" data-sidebar-target="sidebar">
+  <div class="logo-details">
+    <%# <i class='fa-solid fa-laptop-code icon'></i> %>
+    <% if user_signed_in? %>
+      <div class="logo_name">Hello,
+      <br>
+      <%= "#{current_user.nickname}"%>!
+      </div>
+      <i class='bx bx-menu' id="btn" data-sidebar-target="menu" data-action="click->sidebar#change"></i>
+    <% end %>
+  </div>
+  <div class="div">
+    <% if user_signed_in? %>
+      <% if current_user.image? %>
+        <%= image_tag "#{current_user.image}", class: "avatar-custom2" %>
+      <% else %>
+        <%= cl_image_tag current_user.image.key, height: 200, width: 200, class: "avatar-custom2" %>
+      <% end %>
+    <% end %>
+  </div>
+  <ul class="nav-list" style="padding-left:0rem">
+    <li>
+      <div>
+      <i class='bx bx-search' data-sidebar-target="search" data-action="click->sidebar#change"></i>
+        <%= form_with url: users_path, method: :get, class: "d-flex" do  %>
+          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search user", autocomplete: "off" %>
+        <% end %>
+      </div>
+    </li>
+    <%# <li> %>
+      <%#= link_to "/profile" do %>
+        <%# <i class="fa-regular fa-address-card"></i>
+        <span class="links_name">Edit Profile</span> %>
+      <%# end %>
+        <%# <span class="tooltip">Edit Profile</span> %>
+    <%# </li> %>
+    <li>
+      <%= link_to "/challenges" do %>
+        <i class='bx bx-grid-alt'></i>
+        <span class="links_name">Challenges</span>
+      <% end %>
+        <span class="tooltip">Challenges</span>
+    </li>
+    <li>
+      <%= link_to "/my_challenges" do %>
+        <i class='bx bx-chat' ></i>
+        <span class="links_name">My Challenges</span>
+      <% end %>
+      <span class="tooltip">My Challenges</span>
+    </li>
+    <li>
+      <%= link_to "/my_bookings" do %>
+        <i class='bx bx-git-pull-request' ></i>
+        <span class="links_name">My Bookings</span>
+      <% end %>
+      <span class="tooltip">My Bookings</span>
+    </li>
+    <%# <li> %>
+      <%#= link_to "/events" do %>
+        <%# <i class='bx bx-calendar-event' ></i>
+        <span class="links_name">Events</span> %>
+      <%# end %>
+      <%# <span class="tooltip">Events</span> %>
+    <%# </li> %>
+
+    <li>
+      <% if user_signed_in? %>
+        <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" do %>
+          <i class="fa-solid fa-right-from-bracket"></i>
+        <% end %>
+      <% else %>
+        <%= link_to new_user_session_path, class: "nav-link" do %>
+          <i class="fa-solid fa-right-to-bracket"></i>
+        <% end %>
+      <% end %>
+    </li>
+  </ul>
+</div>
