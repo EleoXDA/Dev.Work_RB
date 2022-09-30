@@ -1,6 +1,6 @@
 require "test_helper"
 
-class BookingsControllerTest < ActionDispatch::IntegrationTest
+class OfferTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

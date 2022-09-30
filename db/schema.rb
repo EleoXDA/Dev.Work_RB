@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_28_221019) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_30_220602) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,17 +42,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_28_221019) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "bookings", force: :cascade do |t|
-    t.bigint "challenge_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "price"
-    t.date "date"
-    t.index ["challenge_id"], name: "index_bookings_on_challenge_id"
-    t.index ["user_id"], name: "index_bookings_on_user_id"
-  end
-
   create_table "challenges", force: :cascade do |t|
     t.bigint "filter_id", null: false
     t.bigint "user_id", null: false
@@ -71,13 +60,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_28_221019) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.bigint "booking_id", null: false
     t.bigint "user_id", null: false
     t.bigint "challenge_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "content"
-    t.index ["booking_id"], name: "index_comments_on_booking_id"
     t.index ["challenge_id"], name: "index_comments_on_challenge_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -86,6 +73,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_28_221019) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
+  end
+
+  create_table "offers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "price"
+    t.date "date"
+    t.bigint "user_id"
+    t.bigint "challenge_id"
+    t.index ["challenge_id"], name: "index_offers_on_challenge_id"
+    t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -108,11 +106,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_28_221019) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "bookings", "challenges"
-  add_foreign_key "bookings", "users"
   add_foreign_key "challenges", "filters"
   add_foreign_key "challenges", "users"
-  add_foreign_key "comments", "bookings"
   add_foreign_key "comments", "challenges"
   add_foreign_key "comments", "users"
+  add_foreign_key "offers", "challenges"
+  add_foreign_key "offers", "users"
 end

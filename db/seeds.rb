@@ -8,7 +8,7 @@
 
 require 'faker'
 
-Booking.destroy_all
+Offer.destroy_all
 Challenge.destroy_all
 Filter.destroy_all
 User.destroy_all

@@ -1,4 +1,4 @@
-class Booking < ApplicationRecord
+class Offer < ApplicationRecord
   belongs_to :challenge
   belongs_to :user
 
