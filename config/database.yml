@@ -83,4 +83,4 @@ production:
   <<: *default
   database: DevWork_Production
   username: DevWork
-  password: <%= ENV["RBNB_DATABASE_PASSWORD"] %>
+  password: <%= ENV[DEVWORK_DATABASE_PASSWORD"] %>
