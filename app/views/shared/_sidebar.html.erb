@@ -22,8 +22,8 @@
     <li>
       <div>
       <i class='bx bx-search' data-sidebar-target="search" data-action="click->sidebar#change"></i>
-        <%= form_with url: users_path, method: :get, class: "d-flex" do  %>
-          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search user", autocomplete: "off" %>
+        <%= form_with url: challenges_path, method: :get, class: "d-flex" do  %>
+          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a challenge", autocomplete: "off" %>
         <% end %>
       </div>
     </li>

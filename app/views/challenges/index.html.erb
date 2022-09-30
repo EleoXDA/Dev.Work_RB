@@ -24,29 +24,42 @@
       <h3 style="font-size: xx-large">Check out <a href="https://www.socialize.tech" class="adlink" style="text-decoration:none !important, color:#555B6E !important">Socialize!</a></h3>
       <%= image_tag "Socialize.png", style:'width:130px' %>
     </div>
-      <div class="d-flex justify-content-between">
-        <div class="spacerr" style="width:800px"></div>
+      <div class="d-flex justify-content-center">
         <div class="div">
           <div class="container pt-1 bg-white" id="filtertext">
             <% if @filter.present? %>
-              <p style="margin-top: 3px !important;"><%= "Your filter is #{@filter.name}" %></p>
+              <p style="margin-top: 3px !important;"><%= "Your have selected #{@filter.name} language" %></p>
+            <% elsif params[:location].present? %>
+              <p style="margin-top: 3px !important;"><%= "Your have selected #{params[:location]} city" %></p>
             <% else %>
               <p style="margin-top: 3px !important;"><%= "Your have not selected any filter" %></p>
             <% end %>
           </div>
         </div>
+        <div class="spacerr" style="width:50px"></div>
         <div class="dropdown">
           <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="filterbutton">
             Filter the languages
           </button>
-          <%= link_to "Reset filters", challenges_path, class:"btn btn-secondary", id:"resetfilterbutton"%>
           <ul class="dropdown-menu">
             <% @filters.each do |filter| %>
               <li><%= link_to filter.name, challenges_path(filter: filter.name), class:"dropdown-item" %></li>
             <% end %>
           </ul>
         </div>
-        <div class="spacerr" style="width:200px"></div>
+        <div class="spacerr" style="width:50px"></div>
+        <div class="dropdown d-flex justify-content-end">
+          <button class="btn btn-primary dropdown-toggle rounded-4" type="button" data-bs-toggle="dropdown" aria-expanded="false" >
+            Filter the cities
+          </button>
+          <ul class="dropdown-menu">
+            <% @location_filters.sort.each do |location| %>
+              <li><%= link_to location, challenges_path(location: location), class:"dropdown-item" %></li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="spacerr" style="width:50px"></div>
+        <%= link_to "Reset filters", challenges_path, class:"btn btn-secondary", id:"resetfilterbutton"%>
       </div>
       <%= render "shared/index-cards" %>
   <% end %>
