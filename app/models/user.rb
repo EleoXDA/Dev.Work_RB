@@ -4,7 +4,7 @@ class User < ApplicationRecord
   after_create :set_default_avatar
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
-  has_many :bookings, dependent: :destroy
+  has_many :offers, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :challenges
   has_one_attached :photo
