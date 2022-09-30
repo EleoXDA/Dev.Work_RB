@@ -9,13 +9,36 @@ class ChallengesController < ApplicationController
 
   def index
     @filters = Filter.all
-    if params[:filter]
+    if params[:filter].present? && params[:query].present? && params[:location].present?
+      @filter = Filter.find_by(name: params[:filter])
+      @challenges = Challenge.where('filter_id = ?', @filter.id).where("title ILIKE ?", "%#{params[:query]}%").where(location: params[:location])
+    elsif params[:query].present? && params[:location].present?
+      @challenges = Challenge.where("title ILIKE ?", "%#{params[:query]}%").where(location: params[:location])
+    elsif params[:filter].present? && params[:location].present?
+      @filter = Filter.find_by(name: params[:filter])
+      @challenges = Challenge.where('filter_id = ?', @filter.id).where(location: params[:location])
+    elsif params[:filter].present? && params[:query].present?
+      @filter = Filter.find_by(name: params[:filter])
+      @challenges = Challenge.where('filter_id = ?', @filter.id).where("title ILIKE ?", "%#{params[:query]}%")
+    elsif params[:query].present?
+      @challenges = Challenge.where("title ILIKE ?", "%#{params[:query]}%")
+    elsif params[:location].present?
+      @challenges = Challenge.where(location: params[:location])
+    elsif params[:filter].present?
       @filter = Filter.find_by(name: params[:filter])
       @challenges = Challenge.where('filter_id = ?', @filter.id)
     elsif current_page?(my_challenges_path)
       @challenges = current_user.challenges
     else
       @challenges = Challenge.all
+    end
+
+    locations = Challenge.distinct.pluck(:location)
+    @location_filters = []
+    locations.each do |location|
+      if !location.nil?
+        @location_filters << location
+      end
     end
 
     @markers = @challenges.geocoded.map do |challenge|
