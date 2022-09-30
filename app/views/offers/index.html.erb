@@ -1,0 +1,43 @@
+<div class="container my-3">
+  <div class="container header text-center index-image">
+    <div class="container-fluid" id="title">
+      <h1 class="pt-2">Your Offers</h1>
+        <% if @user_offers.empty? %>
+          <p class="pb-2">You haven't made any offers yet! Any offers you make will be shown here...</p>
+        <% else %>
+          <p class="pb-2">Below you can see all the offers you have made</p>
+        <% end %>
+    </div>
+    <div class="container">
+      <div data-controller="map"
+        id="map"
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+        data-map-markers-value=" <%= @markers.to_json %>"
+        style='width: 100%px; height:500px;'>
+      </div>
+    </div>
+  </div>
+  <div class="grid">
+    <% @user_offers.each do |offer| %>
+      <div class="card my-3 py-3">
+        <h3><%= offer.challenge.title %></h3>
+        <div class="split-card">
+          <div class="split-items">
+            <p><strong>Their maximum price: </strong></p>
+            <p><%= offer.challenge.price_max %></p>
+            <p><strong>The deadline: </strong></p>
+            <p><%= offer.challenge.deadline %></p>
+          </div>
+          <div class="split-items">
+            <p><strong>My offered price: </strong></p>
+            <p><%= offer.price %></p>
+            <p><strong>My proposed date: </strong></p>
+            <p><%= offer.date %></p>
+          </div>
+        </div>
+        <%= link_to "See challenge", challenge_path(offer.challenge), class:"btn btn-dark btn-lg rounded-lg mx-3", id:"button" %>
+      </div>
+    <% end %>
+  </div>
+  <%# end %>
+</div>
