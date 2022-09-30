@@ -13,10 +13,6 @@
             <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
           <% end %>
 
-          <%= f.input :name,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "email" }%>
           <%= f.input :nickname,
                     required: true,
                     autofocus: true,
