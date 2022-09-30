@@ -23,7 +23,8 @@
               <%#= button_to "Sign in with GitHub", user_github_omniauth_authorize_path, method: :post %>
         <% end %>
               <%= render "devise/shared/links" %>
-            </div>
+             </div>
+              <%= link_to "Create a GitHub account", "https://github.com/signup", id: "github-create-button", class: "button draw-border mr-2 sign-in-button" %>
           </div>
       </div>
     </div>
