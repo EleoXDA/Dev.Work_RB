@@ -65,8 +65,7 @@ array = ["https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-
          "https://images.unsplash.com/photo-1534644586429-7681a71bc591?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
          "https://images.unsplash.com/photo-1509112756314-34a0badb29d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=931&q=80",
          "https://images.unsplash.com/photo-1513091550446-33297bfca05b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80",
-         "https://images.unsplash.com/photo-1529068755536-a5ade0dcb4e8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=881&q=80"
-        ]
+         "https://images.unsplash.com/photo-1529068755536-a5ade0dcb4e8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=881&q=80"]
 
 content = ['Here is a piece of code that shows some very peculiar behavior. For some strange reason, sorting the
             data (before the timed region) miraculously makes the loop almost six times faster. (Sorting itself takes
@@ -136,7 +135,7 @@ user_array = []
 
 20.times do
   puts "Creating users!"
-  user = User.new(nickname: Faker::FunnyName.name,
+  user = User.new(nickname: Faker::Name.first_name,
                   name: Faker::Name.name,
                   email: Faker::Internet.email,
                   password: "123456")
