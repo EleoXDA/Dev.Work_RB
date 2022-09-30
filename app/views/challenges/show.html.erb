@@ -40,7 +40,7 @@
               <h2>Offer your skills</h2>
               <p>Do you think you have the required skills? Let them know for how much
                 you could do the challenge and how long it will take you:</p>
-              <%= simple_form_for [@challenge, @booking] do |f| %>
+                <%= simple_form_for [@challenge, @booking] do |f| %>
                 <div class="row d-flex flex-row justify-content-around">
                   <div class="col-3">
                     <%= f.input :price, label: "Price, €" %>
@@ -49,8 +49,11 @@
                     <%= f.input :date, label: 'Proposed date of completion' %>
                   </div>
                 </div>
-              <%= f.submit "Make offer", class:"btn btn-dark btn-lg rounded-lg mt-2", id:"button" %>
-              <% end %>
+                <div class="d-flex justify-content-around">
+                  <%= f.submit "Make offer", class:"btn btn-dark btn-lg rounded-lg mt-2", id:"button" %>
+                  <% end %>
+                  <%= link_to "Back to Challenges", "/challenges", class:"btn btn-secondary btn-lg mt-2", style:"border-radius:15px" %>
+                  </div>
             </div>
           </div>
         <% end %>
