@@ -170,5 +170,34 @@ body{
 
 #resetfilterbutton{
   border-radius: 15px !important;
+}
 
+.draw-border {
+  box-shadow: inset 0 0 0 4px #ffffff1c;
+  background-color: #555b6e;
+  color: #0000001c;
+  padding: 8px 25px;
+  border-radius: 15px;
+  margin-top: 30px;
+}
+
+.draw-border::before,
+.draw-border::after {
+  border: 0 solid transparent;
+  box-sizing: border-box;
+  pointer-events: none;
+  position: absolute;
+  width: 0rem;
+  height: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.draw-border:hover::before {
+  -webkit-transition-delay: 0s, 0s, 0.25s;
+  transition-delay: 0s, 0s, 0.25s;
+}
+
+.draw-border:hover::after {
+  -webkit-transition-delay: 0s, 0.25s, 0s;
 }
