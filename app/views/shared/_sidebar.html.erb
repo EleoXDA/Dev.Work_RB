@@ -43,26 +43,25 @@
     </li>
     <li>
       <%= link_to "/my_challenges" do %>
-        <i class='bx bx-chat' ></i>
+        <i class='bx bx-code-block' ></i>
         <span class="links_name">My Challenges</span>
       <% end %>
       <span class="tooltip">My Challenges</span>
     </li>
     <li>
+      <%= link_to "/challenges/new" do %>
+        <i class='bx bx-plus-circle' ></i>
+        <span class="links_name">New Challenge</span>
+      <% end %>
+      <span class="tooltip">New Challenge</span>
+    </li>
+    <li>
       <%= link_to "/my_bookings" do %>
-        <i class='bx bx-git-pull-request' ></i>
+        <i class='bx bx-spreadsheet' ></i>
         <span class="links_name">My Bookings</span>
       <% end %>
       <span class="tooltip">My Bookings</span>
     </li>
-    <%# <li> %>
-      <%#= link_to "/events" do %>
-        <%# <i class='bx bx-calendar-event' ></i>
-        <span class="links_name">Events</span> %>
-      <%# end %>
-      <%# <span class="tooltip">Events</span> %>
-    <%# </li> %>
-
     <li>
       <% if user_signed_in? %>
         <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" do %>
