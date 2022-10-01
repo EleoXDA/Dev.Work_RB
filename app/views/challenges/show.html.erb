@@ -89,20 +89,37 @@
       </div>
     </div>
     <%# ALL: Comments left on the challenge %>
-    <div class="cardshow p-4">
+    <%# <div class="cardshow p-4">
       <div class="card-body-1">
         <h2>Comments</h2>
-        <% if @comments.nil? %>
-          <p>There are no comments on this challenge! Check back again later...</p>
-        <% else %>
-          <div class="comments px-0">
-            <% @comments.each do |comment| %>
-              <div class="comment py-3">
-                <%= cl_image_tag(comment.user.photo.key, class: "avatar") %>
-                <%= comment %>
-              </div>
-            <% end %>
-          </div>
+        <%# if @comments.nil? %>
+          <%# <p>There are no comments on this challenge! Check back again later...</p> %>
+        <%# else %>
+          <%# <div class="comments px-0"> %>
+            <%# @comments.each do |comment| %>
+              <%# <div class="comment py-3"> %>
+                <%#= cl_image_tag(comment.user.photo.key, class: "avatar") %>
+                <%#= comment %>
+              <%# </div> %>
+            <%# end %>
+          <%# </div> %>
+        <%# end %>
+      <%# </div> %>
+    <%# </div> %>
+    <div class="container chatroom" data-controller="chatroom-subscription"
+    data-chatroom-subscription-chatroom-id-value="<%= @challenge.id %>">
+    <h1>#<%= @challenge.title %></h1>
+
+      <div class="card-body-1 comments" data-chatroom-subscription-target="comments">
+        <% @chatroom.comments.each do |comment| %>
+          <%= render "comments/comment", comment: comment %>
+        <% end %>
+        <%= simple_form_for [@chatroom, @message], html: {
+          data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex"
+          } do |f| %>
+          <%= f.input :content, label: false, placeholder: "Message ##{@challenge.title}",
+            wrapper_html: {class: "flex-grow-1"} %>
+          <%= f.submit "Send", class: "btn btn-primary mb-3" %>
         <% end %>
       </div>
     </div>

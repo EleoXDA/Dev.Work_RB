@@ -1,0 +1,8 @@
+<div id="comment-<%= comment.id %>">
+  <small>
+    <strong><%= comment.user.nickname %></strong>
+    <i><%= comment.created_at.strftime("%a %b %e at %l:%M %p") %></i>
+  </small>
+  <%= cl_image_tag(comment.user.photo.key, class: "avatar") %>
+  <p><%= comment.content %></p>
+</div>

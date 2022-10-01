@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_30_220602) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_01_201553) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -59,13 +59,23 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_30_220602) do
     t.index ["user_id"], name: "index_challenges_on_user_id"
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "challenge_id"
+    t.index ["challenge_id"], name: "index_chatrooms_on_challenge_id"
+  end
+
   create_table "comments", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "challenge_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "content"
+    t.bigint "chatroom_id"
     t.index ["challenge_id"], name: "index_comments_on_challenge_id"
+    t.index ["chatroom_id"], name: "index_comments_on_chatroom_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -108,7 +118,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_30_220602) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "challenges", "filters"
   add_foreign_key "challenges", "users"
+  add_foreign_key "chatrooms", "challenges"
   add_foreign_key "comments", "challenges"
+  add_foreign_key "comments", "chatrooms"
   add_foreign_key "comments", "users"
   add_foreign_key "offers", "challenges"
   add_foreign_key "offers", "users"
