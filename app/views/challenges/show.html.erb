@@ -14,21 +14,17 @@
           <h6><%= @challenge.user.nickname %></h6>
           <h6><i class="fa-sharp fa-solid fa-location-dot fa-xl"></i> <%= @challenge.location %> </h6>
           <div class="card-body">
-            <% if current_user == @challenge.user %>
-              <h1><%= @challenge.title %></h1>
-              <p><strong>Maximum price: </strong>€<%= @challenge.price_max %></p>
-              <p><strong>Deadline: </strong><%= @challenge.deadline.strftime("%B %d, %Y") %></p>
-              <p><strong>Language: </strong><%= @challenge.filter.name %></p>
-              <p><%= @challenge.content %></p>
-              <%= link_to "Delete this challenge", challenge_path(@challenge), class: "btn btn-dark", id: "challenge_buttons",
+            <h1><%= @challenge.title %></h1>
+            <p><strong>Maximum price: </strong>€<%= @challenge.price_max %></p>
+            <p><strong>Deadline: </strong><%= @challenge.deadline.strftime("%B %d, %Y") %></p>
+            <p><strong>Language: </strong><%= @challenge.filter.name %></p>
+            <p><%= @challenge.content %></p>
+            <% if policy(@challenge).edit? %>
+              <%= link_to "Delete this challenge", challenge_path(@challenge), class: "btn btn-danger", id: "challenge_buttons",
+                  style:"color:white; background-color:#D0021B !important; border-color:#D0021B !important;",
                   data: { turbo_method: :delete, turbo_confirm: "Are you sure to delete this challenge?" } %>
               <%= link_to "Edit this challenge", edit_challenge_path(@challenge), class: "btn btn-info", id: "challenge_buttons" %>
-            <% elsif current_user != @challenge.user %>
-              <h1><%= @challenge.title %></h1>
-              <p><strong>Maximum price: </strong>€<%= @challenge.price_max %></p>
-              <p><strong>Deadline: </strong><%= @challenge.deadline.strftime("%B %d, %Y") %></p>
-              <p><strong>Language: </strong><%= @challenge.filter.name %></p>
-              <p><%= @challenge.content %></p>
+              <%= link_to "Back to Challenges", "/challenges", class:"btn btn-secondary btn", style:"border-radius:15px" %>
             <% end %>
           </div>
         </div>
