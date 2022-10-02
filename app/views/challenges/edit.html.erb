@@ -1,17 +1,22 @@
 <div class="container py-5">
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white rounded p-3 shadow">
-        <h3>Edit/Update challenge</h3>
+      <div class="bg-white rounded p-3 shadow" style="border-radius:15px !important;">
+        <h3>Update challenge</h3>
         <%= simple_form_for @challenge do |f| %>
           <%= f.input :title, placeholder: 'Edit the Title' %>
           <%= f.input :content, placeholder: 'Edit the description' %>
           <%= f.input :location, placeholder: 'Edit Challenge location' %>
-          <%= f.association :filter, collection: Filter.all.order(:name), input_html: { data: { controller: "tom-select" } } %>
-          <%= f.input :price_max, placeholder: 'Edit price' %>
-          <%= f.input :deadline, placeholder: 'Edit deadline' %>
+          <%= f.association :filter, label: "Programming language ¹", collection: Filter.all.order(:name), input_html: { data: { controller: "tom-select" } } %>
+          <%= f.input :price_max, placeholder: 'Edit price of your project' %>
+          <%= f.input :deadline, placeholder: 'Edit deadline of your project' %>
           <%= f.submit class:"btn btn-dark btn-lg rounded-lg", id: "challenge_buttons" %>
         <% end %>
+      </div>
+      <div class="div" style="height:10px"></div>
+      <div class="bg-white rounded p-3 shadow" style="border-radius:15px !important; text-align:left !important; opacity:0.9 !important">
+        <p style="font-weight: 200 !important">* All the fields need to be present for successful update</p>
+        <p style="font-weight: 200 !important"><sup>1</sup> You cannot change the programming language of the challenge - for that you need to create a new one</p>
       </div>
     </div>
   </div>
