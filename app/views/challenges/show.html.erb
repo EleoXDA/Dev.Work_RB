@@ -20,9 +20,9 @@
               <p><strong>Deadline: </strong><%= @challenge.deadline.strftime("%B %d, %Y") %></p>
               <p><strong>Language: </strong><%= @challenge.filter.name %></p>
               <p><%= @challenge.content %></p>
-              <%= link_to "Delete this challenge", challenge_path(@challenge), class: "btn btn-dark",
+              <%= link_to "Delete this challenge", challenge_path(@challenge), class: "btn btn-dark", id: "challenge_buttons",
                   data: { turbo_method: :delete, turbo_confirm: "Are you sure to delete this challenge?" } %>
-              <%= link_to "Update this challenge", edit_challenge_path(@challenge), class: "btn btn-info" %>
+              <%= link_to "Update this challenge", edit_challenge_path(@challenge), class: "btn btn-info", id: "challenge_buttons" %>
             <% elsif current_user != @challenge.user %>
               <h1><%= @challenge.title %></h1>
               <p><strong>Maximum price: </strong>€<%= @challenge.price_max %></p>
