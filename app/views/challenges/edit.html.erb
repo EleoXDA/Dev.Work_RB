@@ -10,7 +10,7 @@
           <%= f.association :filter, collection: Filter.all.order(:name), input_html: { data: { controller: "tom-select" } } %>
           <%= f.input :price_max, placeholder: 'Edit price' %>
           <%= f.input :deadline, placeholder: 'Edit deadline' %>
-          <%= f.submit class:"btn btn-dark btn-lg rounded-lg" %>
+          <%= f.submit class:"btn btn-dark btn-lg rounded-lg", id: "challenge_buttons" %>
         <% end %>
       </div>
     </div>
