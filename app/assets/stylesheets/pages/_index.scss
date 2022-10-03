@@ -56,6 +56,13 @@ body{
 }
 
 
+.grid_offer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 8px;
+}
+
+
 .c-details span {
     font-weight: 300;
     font-size: 13px

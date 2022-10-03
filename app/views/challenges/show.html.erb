@@ -14,17 +14,22 @@
           <h6><%= @challenge.user.nickname %></h6>
           <h6><i class="fa-sharp fa-solid fa-location-dot fa-xl"></i> <%= @challenge.location %> </h6>
           <div class="card-body">
-            <h1><%= @challenge.title %></h1>
-            <p><strong>Maximum price: </strong>€<%= @challenge.price_max %></p>
-            <p><strong>Deadline: </strong><%= @challenge.deadline.strftime("%B %d, %Y") %></p>
-            <p><strong>Language: </strong><%= @challenge.filter.name %></p>
-            <p><%= @challenge.content %></p>
+            <div>
+              <h1><%= @challenge.title %></h1>
+              <p><strong>Maximum price: </strong>€<%= @challenge.price_max %></p>
+              <p><strong>Deadline: </strong><%= @challenge.deadline.strftime("%B %d, %Y") %></p>
+              <p><strong>Language: </strong><%= @challenge.filter.name %></p>
+              <p><%= @challenge.content %></p>
+              <% @challenge.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, height: 400, width: 600, crop: :fit, class:"my-1" %>
+              <% end %>
+            </div>
             <% if policy(@challenge).edit? %>
-              <%= link_to "Delete this challenge", challenge_path(@challenge), class: "btn btn-danger", id: "challenge_buttons",
+              <%= link_to "Delete this challenge", challenge_path(@challenge), class: "btn btn-danger mt-5 mb-1", id: "challenge_buttons",
                   style:"color:white; background-color:#D0021B !important; border-color:#D0021B !important;",
                   data: { turbo_method: :delete, turbo_confirm: "Are you sure to delete this challenge?" } %>
-              <%= link_to "Edit this challenge", edit_challenge_path(@challenge), class: "btn btn-info", id: "challenge_buttons" %>
-              <%= link_to "Back to Challenges", "/challenges", class:"btn btn-secondary btn", style:"border-radius:15px" %>
+              <%= link_to "Edit this challenge", edit_challenge_path(@challenge), class: "btn btn-info mt-5 mb-1", id: "challenge_buttons" %>
+              <%= link_to "Back to Challenges", "/challenges", class:"btn btn-secondary btn mt-5 mb-1", style:"border-radius:15px" %>
             <% end %>
           </div>
         </div>
@@ -65,19 +70,39 @@
               <% else %>
                 <div>
                   <ul class="px-0 offers">
-                    <% @offers.each do |offer| %>
-                      <li class="py-3">
-                        <%= cl_image_tag(offer.user.photo.key, class: "avatar") %>
-                        <h4>User: <%= offer.user.nickname %></h3>
-                        <p>Offered price: €<%= offer.price %></p>
-                        <p>Offered date of completion: <%= offer.date %></p>
-                        <div class="choose-offer-button">
-                          <%= link_to "Accept offer", "#", class: "btn btn-primary" %>
-                        </div>
-                      </li>
-                    <% end %>
-                  </ul>
-                </div>
+                    <%# <div class="container mt-5 mb-3 cards"> %>
+                        <% @offers.each do |offer| %>
+                        <div class="grid_offer">
+
+
+                              <div class="d-flex flex-column justify-content-between card p-3 mb-2 card-bg" style="hegiht:350px !important; width:350px !important">
+                                  <%# <div class="d-flex justify-content-between pb-3"> %>
+                                    <div class="d-flex flex-row ">
+                                      <div class="image">
+                                        <% if offer.user.image.present? %>
+                                          <%= image_tag(offer.user.image, class: "avatar-offer") %>
+                                        <% elsif @offer.user.photo.attached? %>
+                                          <%= cl_image_tag(@offer.user.photo.key) %>
+                                        <% end %>
+                                      </div>
+                                      <div style="width:20px; height:20px"></div>
+                                      <div class="d-flex flex-column">
+                                        <div class="ms-2 c-details">
+                                          <p style="font-size:30px"><%= offer.user.nickname %>
+                                          </p>
+                                        </div>
+                                        <%#= image_tag(offer.user.image, class: "avatar-offer") %>
+                                        <p>Offered price: €<%= offer.price %></p>
+                                      </div>
+                                    </div>
+                                        <p class="my-3">Offered date of completion: <%= offer.date %></p>
+                                  <%= link_to "Accept offer", challenge_path(@challenge), class: "btn btn-success", id: "challenge_buttons", style:"background-color:#009900; color:#ffffff; border-width:0px" %>
+                                </div>
+                              </div>
+
+                        <% end %>
+                    </ul>
+                  </div>
               <% end %>
             </div>
           </div>

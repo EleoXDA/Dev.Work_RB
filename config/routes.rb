@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :challenges, only: %i[show index new create destroy edit update] do
-    resources :offers, only: %i[create update]
-    resources :comments, only: %i[create]
+    resources :offers, only: %i[show index create update]
+    resources :comments, only: %i[index create]
   end
   resources :users, only: [:index, :show, :edit, :update], path: "index" do
   end
