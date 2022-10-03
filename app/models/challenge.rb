@@ -3,6 +3,7 @@ class Challenge < ApplicationRecord
   belongs_to :user
   has_many :offers, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many_attached :photos
 
   validates :title, :content, :price_max, :deadline, :location, presence: true
 
