@@ -64,7 +64,7 @@ class ChallengesController < ApplicationController
     @challenge.filter = Filter.find(params[:challenge][:filter_id])
     authorize @challenge
     if @challenge.save
-      redirect_to challenges_path
+      redirect_to challenge_path(@challenge)
     else
       render :new, status: :unprocessable_entity
     end
@@ -93,6 +93,6 @@ class ChallengesController < ApplicationController
   end
 
   def challenge_params
-    params.require(:challenge).permit(:title, :content, :price_max, :deadline, :location)
+    params.require(:challenge).permit(:title, :content, :price_max, :deadline, :location, photos: [])
   end
 end
