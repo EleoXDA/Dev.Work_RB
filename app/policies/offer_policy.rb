@@ -23,7 +23,7 @@ class OfferPolicy < ApplicationPolicy
   end
 
   def update?
-    return record.user == user
+    user.admin? ? true : record.user == user
   end
 
   def destroy?
