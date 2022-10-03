@@ -9,6 +9,7 @@
           <%= f.input :location, placeholder: 'Edit Challenge location' %>
           <%= f.association :filter, label: "Programming language ¹", collection: Filter.all.order(:name), input_html: { data: { controller: "tom-select" } } %>
           <%= f.input :price_max, placeholder: 'Edit price of your project' %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
           <%= f.input :deadline, placeholder: 'Edit deadline of your project' %>
           <%= f.submit class:"btn btn-dark btn-lg rounded-lg", id: "challenge_buttons" %>
         <% end %>
