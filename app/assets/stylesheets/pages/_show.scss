@@ -16,6 +16,10 @@ body{
 }
 
 .offers {
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 8px;
+  justify-content: space-between;
   list-style-type: none;
   padding-left: none;
   list-style-position: inside;
