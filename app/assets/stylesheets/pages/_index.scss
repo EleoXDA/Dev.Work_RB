@@ -80,19 +80,19 @@ body{
 }
 
 .badge  {
-    background-color: #d0c9b0;
-    // width: 60px;
-    height: 30px;
-    padding-bottom: 5px;
-    border-radius: 10px;
-    display: flex;
-    color: #070500;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    font-size: 16px;
+  background-color: #d0c9b0;
+  width: fit-content;
+  height: 30px;
+  padding-bottom: 5px;
+  padding-top: 8px;
+  border-radius: 10px;
+  display: flex;
+  color: #070500;
+  justify-content: space-between;
+  align-items: right;
+  overflow: hidden;
+  font-size: 16px;
 }
-
 
 .text1 {
     font-size: 20px;
