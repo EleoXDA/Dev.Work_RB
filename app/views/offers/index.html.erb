@@ -19,7 +19,7 @@
   </div>
   <div class="grid">
     <% @user_offers.each do |offer| %>
-      <div class="card my-3 py-3">
+      <div class="card my-3 py-3" style="height:310px">
         <h3><%= offer.challenge.title %></h3>
         <div class="split-card">
           <div class="split-items">
@@ -35,7 +35,8 @@
             <p><%= offer.date %></p>
           </div>
         </div>
-        <%= link_to "See challenge", challenge_path(offer.challenge), class:"btn btn-dark btn-lg rounded-lg mx-3", id:"button" %>
+        <%= link_to "See challenge", challenge_path(offer.challenge), class:"btn btn-dark btn-lg rounded-lg mx-3", style:"position:absolute;bottom:10px; width:180px", id:"button" %>
+        <%= link_to "View offer", "#", class:"btn btn-dark btn-lg rounded-lg mx-3", style:"position:absolute;bottom:10px; right:0px; width:180px", id:"button" %>
       </div>
     <% end %>
   </div>
