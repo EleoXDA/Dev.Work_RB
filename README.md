@@ -1,4 +1,4 @@
-# Dev.Work[^1]
+# Dev.Work
 
 <div align="center"> <img src="https://user-images.githubusercontent.com/27622683/187276404-4e05d486-6084-4f0f-b2c0-16aa586b649e.png" width=350> </div>
 
@@ -10,6 +10,4 @@ With our app you can:
 and many many more
 
 Don't forget to subscribe to our GitHub and never forget:
-### <div align="center">Whatever bug you can't fix, Dev.Work can!</div>
-
-[^1]: This app is generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team using Ruby on Rails.
+## <div align="center">Whatever bug you can't fix, Dev.Work can!</div>
