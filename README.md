@@ -9,5 +9,11 @@ With our app you can:
 - Find a challenge you can tackle and enter the auction to be the person to fix the bug
 and many many more
 
-Don't forget to subscribe to our GitHub and never forget:
+## Usage
+
+~~Visit our website and sign up NOW! www.DEVWORK.team~~
+
+## !! WARNING !! Due to disappearance of Heroku Free plan, the website is down. 
+
+Don't forget to watch our GitHub repo for updates and never forget:
 ## <div align="center">Whatever bug you can't fix, Dev.Work can!</div>
